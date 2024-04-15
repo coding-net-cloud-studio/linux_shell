@@ -1,0 +1,33 @@
+# 课程目录配置
+
+chapters:  #  需要为每个章节指定章节名、章节内容（markdown 文件地址）、课程视频地址、以及项目内的练习代码地址；
+  - title: "系列课程介绍"
+    article: "../translations/README.zh-cn.md"
+    code: ""
+    video: "player.bilibili.com/player.html?aid=1602265568&bvid=BV1fm421J7v3&cid=1482632017&p=1"
+    run:
+  - title: "本章概要"
+    article: "../1-Introduction/translations/README.zh-cn.md"
+    code: ""
+    video: ""
+    run:
+  - title: "1.机器学习简介"
+    article: "../1-Introduction/1-intro-to-ML/translations/README.zh-cn.md"
+    code: ""
+    video: "player.bilibili.com/player.html?aid=1352351025&bvid=BV1vz421f7Ns&cid=1482631867&p=1"
+    run:
+  - title: "2.机器学习的历史"
+    article: "../1-Introduction/2-history-of-ML/translations/README.zh-cn.md"
+    code: ""
+    video: "player.bilibili.com/player.html?aid=1202348183&bvid=BV1Qf421Z7QF&cid=1482631952&p=1"
+    run:
+  - title: "3.机器学习与公平"
+    article: "../1-Introduction/3-fairness/translations/README.zh-cn.md"
+    code: ""
+    video: "player.bilibili.com/player.html?aid=1802382119&bvid=BV1Ht42137pP&cid=1482631953&p=1"
+    run:
+  - title: "4.机器学习的技术工具"
+    article: "../1-Introduction/4-techniques-of-ML/translations/README.zh-cn.md"
+    code: ""
+    video: ""
+    run:

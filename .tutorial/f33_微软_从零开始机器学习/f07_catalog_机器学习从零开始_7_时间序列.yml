@@ -1,0 +1,22 @@
+# 课程目录配置
+
+chapters:  #  需要为每个章节指定章节名、章节内容（markdown 文件地址）、课程视频地址、以及项目内的练习代码地址；
+  - title: "本章概要"
+    article: "../7-TimeSeries/translations/README.zh-cn.md"
+    code: ""
+    video: ""
+    run:
+  - title: "1.时间序列预测介绍"
+    article: "../7-TimeSeries/1-Introduction/translations/README.zh-cn.md"
+    code: "../7-TimeSeries/1-Introduction/working/notebook.ipynb"
+    video: "player.bilibili.com/player.html?aid=1152289091&bvid=BV1yZ421t7EY&cid=1484956910&p=1"
+  - title: "2.构建 ARIMA 时间序列模型"
+    article: "../7-TimeSeries/2-ARIMA/translations/README.zh-cn.md"
+    code: "../7-TimeSeries/2-ARIMA/working/notebook.ipynb"
+    video: "player.bilibili.com/player.html?aid=1652265465&bvid=BV1zj421d7xj&cid=1484956833&p=1"
+    run:
+  - title: "3.构建支持向量回归器的时间序列预测"
+    article: "../7-TimeSeries/3-SVR/translations/README.zh-cn.md"
+    code: "../7-TimeSeries/3-SVR/working/notebook.ipynb"
+    video: ""
+    run:

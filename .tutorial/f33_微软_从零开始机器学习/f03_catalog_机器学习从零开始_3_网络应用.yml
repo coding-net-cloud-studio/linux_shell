@@ -1,0 +1,13 @@
+# 课程目录配置
+
+chapters:  #  需要为每个章节指定章节名、章节内容（markdown 文件地址）、课程视频地址、以及项目内的练习代码地址；
+  - title: "本章概要"
+    article: "../3-Web-App/translations/README.zh-cn.md"
+    code: ""
+    video: ""
+    run:
+  - title: "1.构建一个 Web 应用程序"
+    article: "../3-Web-App/1-Web-App/translations/README.zh-cn.md"
+    code: "../3-Web-App/1-Web-App/notebook.ipynb"
+    video: "."
+    run:

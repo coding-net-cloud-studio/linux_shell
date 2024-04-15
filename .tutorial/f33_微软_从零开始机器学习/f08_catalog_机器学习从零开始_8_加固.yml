@@ -1,0 +1,18 @@
+# 课程目录配置
+
+chapters:  #  需要为每个章节指定章节名、章节内容（markdown 文件地址）、课程视频地址、以及项目内的练习代码地址；
+  - title: "本章概要"
+    article: "../8-Reinforcement/translations/README.zh-cn.md"
+    code: ""
+    video: "player.bilibili.com/player.html?aid=1302307641&bvid=BV1gu4m1M7K5&cid=1484971642&p=1"
+    run:
+  - title: "1.强化学习和 Q-Learning 介绍"
+    article: "../8-Reinforcement/1-QLearning/translations/README.zh-cn.md"
+    code: "../8-Reinforcement/1-QLearning/notebook.ipynb"
+    video: "player.bilibili.com/player.html?aid=1652469472&bvid=BV1fj42197sT&cid=1484971714&p=1"
+    run:
+  - title: "2.使用 Gym 模拟环境"
+    article: "../8-Reinforcement/2-Gym/translations/README.zh-cn.md"
+    code: "../8-Reinforcement/2-Gym/notebook.ipynb"
+    video: ""
+    run:
