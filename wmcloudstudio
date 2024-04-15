@@ -1,0 +1,46 @@
+#!/bin/bash
+
+pause_60_second(){
+	if read -t 60 -p "暂停60秒,按回车继续运行: "
+	then
+		# echo "hello $REPLY,welcome to cheng du"
+		printf "\n";
+	else
+		# echo "sorry, Output timeout, please execute the command again !"
+		printf "\n时间已到,继续运行\n";
+	fi
+}
+
+# ===========================================================
+
+l20_call_cloudstudio(){
+    echo $*
+    export v20_need_to_be_opened=$1
+    echo ${v20_need_to_be_opened}
+    # NOTE 如果第1个参数是存在的
+    if [[ ! -z ${v20_need_to_be_opened} ]]; then 
+        cloudstudio ${v20_need_to_be_opened}
+    fi 
+    return 0
+}
+
+main(){
+
+	export v33_OLDPWD=$(pwd)
+
+    # l20_call_cloudstudio $*
+
+    if [[ -f $(which cloudstudio) ]]; then
+        l20_call_cloudstudio $*
+    fi
+
+	cd ${v33_OLDPWD}
+
+    return 0
+
+}
+
+# ===========================================================
+# NOTE 下面是本脚本的主要调用入口
+# NOTE 如果调用本bash脚本的时候_没有参数_就简单的输出一段信息
+[ -z "$1" ] && echo "该handy_notebook可能是手动打开的_无需做额外的操作" || eval main $*

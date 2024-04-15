@@ -1,0 +1,10 @@
+autoOpen: true
+apps:
+  - port: 5000
+    run: ./07_run_me_本教学仓库版本.sh && pip3 install -i https://mirrors.tencent.com/pypi/simple/ -r ./.wmstudy/wm28.preview/web/requirements.txt && python3 ./.wmstudy/wm28.preview/web/app.py
+    root: .
+    name: 新码农在家背单词_公告板
+    description: v00.00.00.20_cloud_studio_新码农在家背单词_公告板
+    autoOpen: true
+  
+# make -f Makefile wmtask_runonce_set_env && pip3 install --upgrade pip && pip3 install -i https://mirrors.tencent.com/pypi/simple/ ansible==2.9.6 && pip3 install -i https://mirrors.tencent.com/pypi/simple/ -r ./.wmstudy/wm28.preview/web/requirements.txt && python3 ./.wmstudy/wm28.preview/web/app.py
