@@ -93,6 +93,34 @@ f23_install_some_software(){
 	return 0
 }
 
+# NOTE 从a22_vs_ext移植过来的
+# NOTE 本函数被Makefile的make imgcat所调用
+#类似imgcat等小工具位于.wmstudy/bin的目录下
+f28_20_install_some_wmstudy_bin_tools(){
+	# pause_60_second
+	# 只有位于cloudstudio工作空间中才执行
+	if [[ -f $(which cloudstudio) ]]; then
+		# pause_60_second
+		# 只有具有如下的目录才执行
+		if [[ -d .wmstudy/bin/ ]]; then
+			# pause_60_second
+			chmod +x .wmstudy/bin/*
+			# ls -lah .wmstudy/bin/
+			cp -r -f .wmstudy/bin/* /usr/bin/
+			# ls -lah /usr/bin/imgcat
+			cp -r -f .wmstudy/bin/* /bin/
+			# ls -alh /bin/imgcat
+
+			# 尝试在jupyter notebook中使用
+			if [[ -f $(which imgcat) ]]; then
+				ln -s -f $(which imgcat) /usr/bin/看图      || echo "已经_建立_看图_软连接"
+				ln -s -f $(which imgcat) /usr/bin/查看图片  || echo "已经_建立_查看图片_软连接"
+			fi
+		fi
+	fi
+}
+
+
 # ==============================================================
 
 # NOTE 把06_样例目录拷贝到/workspace/下面去
@@ -439,6 +467,9 @@ f94_2828_30_main(){
 	f20_linux_git_setting
 
 	# f23_install_some_software
+
+	# NOTE 把类似imgcat等_进行设置
+	f28_20_install_some_wmstudy_bin_tools
 
 	# NOTE 下面是老版本p27的_这里不再调用了
 	# l10_install_me
