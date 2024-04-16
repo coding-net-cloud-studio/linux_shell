@@ -1,0 +1,104 @@
+序号,类型,AI工具名称,入口,功能
+1,AI写代码,智谱AI的CodeGeex,https://codegeex.cn/,高效_全能_尽享编程乐趣_使用方便快捷_大大提升开发效率
+2,AI写代码,昇思MindSpore,https://www.mindspore.cn,面向开发者的一站式AI开发平台_提供海量数据预处理及半自动化标注_大规模分布式Training_自动化模型生成
+3,AI写代码,百度飞桨PaddlePaddle AI Code assistant,https://www.paddlepaddle.org.cn,在线编程_海量数据集
+4,AI写代码,ZelinAI,https://www.zelinai.com,零代码构建AI应用
+5,AI写代码,aiXcoder,https://www.aixcoder.com,基于深度学习代码生成技术的智能编程机器人
+6,AI写代码,商汤代码小浣熊,https://raccoon.sensetime.com_code,代码生成补全翻译重构
+7,AI写代码,CodeArts Snap,https://www.huaweicloud.com_product_codeartside_snap.html,覆盖代码生成_研发知识问答_单元测试用例生成_代码解释_代码注释_代码翻译_代码调试_代码检查等八大研发场景
+8,AI写代码,天工智码,https://sky_code.singularity_ai.com_index.html#_,基于昆仑天工模型的AI代码工具
+9,聊天_内容生成,智谱AI,https://open.bigmodel.cn,综合型AI_内容生成_知识问答
+10,聊天_内容生成,百川智能,https://www.baichuan_ai.com_chat,综合型AI_内容生成_文档分析_互联网搜索
+11,聊天_内容生成,360智脑,https://ai.360.com,综合型AI_360智脑全家桶
+12,聊天_内容生成,字节小悟空,https://wukong.com_tool,综合型AI_字节跳动内容生成工具集
+13,聊天_内容生成,达观数据曹植,http://www.datagrand.com_,行业垂域大模型
+14,AI办公_综合,360数字员工,https://ai.360.com,团队协作共享_企业知识库_AI文档分析_AI营销文案_AI文书写作等智能工具
+15,AI办公_综合,有道AI,https://ai.youdao.com,文档_翻译_视觉_语音_教育
+16,AI办公_Office,AiPPT,https://www.aippt.cn,自动生成PPT大纲_模板_Word_PPT
+17,AI办公_Office,iSlide,https://www.islide.cc,AI 一键设计 PPT
+18,AI办公_Office,WPS AI,https://ai.wps.cn,WPS的AI插件（智能PPT_表格_文档整理）
+19,AI办公_Office,ChatPPT,http://www.chat_ppt.com,AI插件_支持Office_WPS_自动文档生成
+20,AI办公_Office,360苏打办公,https://bangong.360.cn,AI办公工具集：文档_视频_设计_开发
+21,AI办公_Office,酷表ChatExcel,https://chatexcel.com,智能Excel公式
+22,AI办公_Office,商汤办公小浣熊,https://raccoon.sensetime.com,智能图表
+23,AI办公_会议纪要,讯飞听见,https://www.iflyrec.com,音视频转文字_实时录音转文字_同传_翻译
+24,AI办公_会议纪要,阿里通义听悟,https://tingwu.aliyun.com,实时转录_音视频转文字_互联网内容提炼
+25,AI办公_会议纪要,飞书妙记,https://www.feishu.cn_product_minutes?from=thosefree.com,飞书文档中的会议纪要工具_实时转录_音视频转文字
+26,AI办公_会议纪要,腾讯会议AI,https://meeting.tencent.com_ai_index.html,腾讯会议录制后会议纪要整理
+27,AI办公_脑图,ProcessOn,https://www.processon.com,AI思维导图
+28,AI办公_脑图,亿图脑图,https://www.edrawsoft.cn_mindmaster,AI思维导图
+29,AI办公_脑图,GitMind思乎,https://gitmind.cn_,AI思维导图
+30,AI办公_脑图,boardmix_博思白板,https://boardmix.cn_ai_whiteboard,实时协作的智慧白板上_一键生成PPT_用AI协助创作思维导图_AI绘画_AI写作_共享资源素材
+31,AI办公_脑图,妙办画板,https://imiaoban.com,生成流程图_思维导图
+32,AI办公_文档,司马阅AI文档,https://smartread.cc_,每天免费100次提问_AI文档阅读分析工具_通过聊天互动形式_精准地从复杂文档提取并分析信息
+33,AI办公_文档,360AI浏览器,https://ai.360.com,智能摘要_文章脉络_思维导图等
+34,AI写作,有道云笔记AI,https://note.youdao.com,有道云笔记写作插件_改写扩写润色
+35,AI写作,腾讯 Effidit,https://effidit.qq.com,智能纠错_文本补全_文本改写_文本扩写_词语推荐_句子推荐与生成等功能
+36,AI写作,讯飞写作,https://huixie.iflyrec.com,AI对话写作_模板写作_素材_润色
+37,AI写作,深言达意,https://www.shenyandayi.com,根据模糊描述_找词找句的智能写作工具
+38,AI写作,阿里悉语,https://login.taobao.com,淘宝专用的商品文案生成_输入商品的淘宝链接即可获得文案
+39,AI写作,字节火山写作,https://www.writingo.net,全文润色的AI智能写作
+40,AI写作,秘塔写作猫,https://xiezuocat.com,AI写作模板_AI写作工具_指令扩写润色
+41,AI写作,光速写作,https://guangsuxie.com,作业帮旗下：全文生成_PPT生成_问答助手_写作助手
+42,AI写作,WriteWise,https://www.ximalaya.com_gatekeeper_write_wise_web?ref=ai_bot.cn,喜马拉雅小说创作工具
+43,AI写作,笔灵AI,https://ibiling.cn,一键生成工作计划_文案方案
+44,AI写作,易撰,https://www.yizhuan5.com,自媒体内容
+45,AI写作,Giiso写作机器人,https://www.giiso.com,写作_文配图_风格转换_文生图
+46,AI写作,5118 SEO优化精灵,https://www.5118.com_seometa,快速生成高质量SEO标题_Meta描述和关键字_轻松提升网站搜索引擎排名
+47,AI翻译,沉浸式翻译,https://immersivetranslate.com,翻译外语网页_PDF翻译_EPUB电子书翻译_视频双语字幕翻译等
+48,AI翻译,彩云小译,https://fanyi.caiyunapp.com,多种格式文档的翻译_同声传译_文档翻译和网页翻译
+49,AI翻译,网易见外,https://sight.youdao.com,字幕_音频转写_同传_文档翻译
+50,AI搜索引擎,天工AI搜索_昆仑万维,https://search.tiangong.cn,找资料_查信息_搜答案_搜文件_还会对海量搜索结果做AI智能聚合
+51,AI搜索引擎,360AI搜索,https://ai.360.com,AI搜索能够从海量的网站中主动寻找_提炼精准答案
+52,AI搜索引擎,秘塔AI搜索,https://metaso.cn,没有广告_直达结果
+53,AI搜索引擎,perplexity.ai,www.perplexity.ai,黄仁勋带货的AI搜索引擎
+54,AI搜索引擎,sciphi.ai,https://search.sciphi.ai,AI搜索引擎
+55,AI搜索引擎,devv.ai,https://devv.ai,为开发人员打造的人工智能驱动的搜索引擎
+56,图像生成_编辑,通义万相,https://tongyi.aliyun.com,AI生成图片_人工智能艺术创作大模型
+57,图像生成_编辑,文心一格,https://yige.baidu.com,文生图像
+58,图像生成_编辑,剪映AI,https://www.capcut.cn,剪映一键生成AI绘画
+59,图像生成_编辑,腾讯ARC,https://arc.tencent.com,人像修复_人像抠图_动漫增强
+60,图像生成_编辑,360智绘,https://ai.360.com,风格化AI绘画_Lora训练
+61,图像生成_编辑,无限画,https://588ku.com_ai_wuxianhua_Home,智能图像设计_整合千库网的设计行业知识经验_资源数据
+62,图像生成_编辑,美图设计室,https://www.x_design.com,图像智能处理_海报设计
+63,图像生成_编辑,liblib.ai,https://www.liblib.ai, AI 模型分享平台_各种风格的图像微调模型
+64,图像生成_编辑,Tusi.Art,https://tusiart.com, AI 模型分享平台
+65,图像生成_编辑,标小智Logo生成,https://www.logosc.cn,在线LOGO设计_生成企业VI
+66,图像生成_编辑,佐糖,https://picwish.cn,丰富的图像处理工具
+67,图像生成_编辑,Vega AI,https://vegaai.net,文生图_图生图_姿态生图_文生视频_图生视频
+68,图像生成_编辑,美图WHEE,https://www.whee.com,文生图_图生图_文生视频_扩图改图超清
+69,图像生成_编辑,无界AI,https://www.wujieai.com,文生图
+70,图像生成_编辑,BgSub,https://bgsub.cn,抠图
+71,图像生成_编辑,阿里PicCopilot,https://www.piccopilot.com,阿里巴巴国际_AI驱动图片优化工具_专门为电商领域提供服务
+72,图像生成_编辑,搜狐简单AI,https://ai.sohu.com,智能图片生成平台和社区
+73,图像生成_编辑,6pen,https://6pen.art,文本描述生成绘画艺术作品
+74,AI设计,阿里堆友,https://d.design,面向设计师群体的AI设计社区
+75,AI设计,稿定AI,https://www.gaoding.com,图像设计
+76,AI设计,墨刀AI,https://modao.cc,产品设计协作平台
+77,AI设计,莫高设计MasterGo AI,https://mastergo.com,AI 时代的企业级产品设计平台_界面设计_交互设计
+78,AI设计,创客贴AI,https://www.chuangkit.com,图形图像设计
+79,AI设计,即时AI,https://js.design_ai,文生UI_文生图_图生UI
+80,AI设计,PixsO AI,https://pixso.cn,新生代UI设计工具
+81,AI设计,抖音即创,https://aic.oceanengine.com,抖音电商智能创作平台_提供AI视频创作_图文创作和直播创作
+82,AI设计,腾讯 AIDesign,https://ailogo.qq.com,腾讯的logo设计
+83,AI设计,美间,https://www.meijian.com,AI软装设计_海报和提案生成工具
+84,AI音频,度加创作工具,https://aigc.baidu.com,热搜一键成稿_文稿一键成片
+85,AI音频,魔音工坊,https://www.moyin.com,AI配音工具
+86,AI音频,网易天音,https://tianyin.music.163.com,智能编曲_海量风格
+87,AI音频,TME Studio,https://y.qq.com_tme_studio,腾讯音乐智能音乐生成工具
+88,AI音频,讯飞智作,https://www.xfzhizuo.cn,配音_声音定制_虚拟主播_音视频处理
+89,AI视频,PixVerse,https://pixverse.ai,文生视频
+90,AI视频,绘影字幕,https://huiyingzimu.com,AI字幕_翻译_配音
+91,AI视频,万彩微影,https://www.animiz.cn_microvideo,真人手绘视频_翻转文字视频_文章转视频_相册视频工具
+92,AI视频,芦笋AI提词器,https://tcq.lusun.com,持AI写稿_隐形提词效果_支持智能跟读
+93,AI视频,360快剪辑,https://kuai.360.cn,专业视频剪辑
+94,AI视频,万彩AI,https://ai.kezhan365.com,高效_好用的AI写作和短视频创作平台
+95,数字人,腾讯智影,https://zenvideo.qq.com,数字人_文本配音_文章转视频
+96,数字人,来画,https://www.laihua.com,动画_数字人智能制作
+97,数字人,一帧秒创,https://aigc.yizhentv.com,AI视频_数字人_AI作画
+98,数字人,万兴播爆,https://virbo.wondershare.cn,数字人_真人营销视频
+99,模型训练_部署,火山方舟,https://www.volcengine.com_product_ark,模型训练_推理_评测_精调等全方位功能与服务
+100,模型训练_部署,魔搭社区,https://modelscope.cn,阿里达摩院_提供模型探索体验_推理_训练_部署和应用的一站式服务
+101,模型训练_部署,文心大模型,https://wenxin.baidu.com,产业级知识增强大模型
+102,AI提示词,提示工程指南,www.promptingguide.ai,如何使用提示词来完成不同的任务
+103,AI提示词,词魂,https://icihun.com_,AIGC精品提示词库
