@@ -131,6 +131,91 @@ f28_20_install_some_wmstudy_bin_tools(){
 	fi
 }
 
+# ==============================================================
+
+# NOTE 本函数被f36_42_fy_lookup_english_dictionary_for_cloudstudio所调用
+# 被调用的原因是_防止在_非腾云扣钉cloudstudio的环境_调用
+# 怕误操作_污染自己的linux或ubuntu环境
+# 安装fanyi_翻译_在cloudstudio的终端与命令行中_可以查找英文单词的中文解释_还有点_例句
+f36_40_fanyi_helper(){
+
+	# 需要增加阿里巴巴源_因为有几个小软件_腾讯源没有
+
+	# touch /etc/apt/sources.list.d/ali.list
+
+(
+cat <<'EOF'
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+EOF
+) > /etc/apt/sources.list.d/ali.list
+
+	# 更新apt
+	apt update
+
+	# 安装辅助软件
+	apt install -y festvox-don festvox-rablpc16k festvox-kallpc16k festvox-kdlpc16k
+
+	# 安装fanyi
+	npm install fanyi -g
+
+	# 测试翻译
+	fanyi word
+
+	pause_60_second
+
+	fy word
+	fanyi love
+	fanyi 和谐
+
+	pause_60_second
+
+	fanyi 子非鱼焉知鱼之乐
+
+	# fanyi的命令_列出今天查找的单词
+	pause_60_second
+
+	fy list
+
+	# 为了jupyter_notebok_中_更加直观的_创建了_ln_链接
+	if [[ -f $(which fanyi) ]]; then
+		ln -s $(which fanyi) /usr/bin/翻译 || echo "已经_建立_翻译_软连接"
+		ln -s $(which fanyi) /usr/bin/查词 || echo "已经_建立_查词_软连接"
+	fi
+
+	return 0
+}
+
+
+# NOTE 这个函数才是被Makefile中调用的
+# 本函数调用的是 f36_40_fanyi_helper
+# NOTE 主要目的是 判断位于腾云扣钉cloudstudio的工作空间_才执行
+# make fy
+f36_42_fy_lookup_english_dictionary_for_cloudstudio(){
+
+	echo "运行在_f36_42_fy_lookup_english_dictionary_for_cloudstudio_函数"
+
+	echo -e "\n运行在 $(pwd)/${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]} 脚本的 ${FUNCNAME} 函数中 ${LINENO} 行\n"
+
+	# 判断是否是cloudstudio的环境
+	[[ -f $(which cloudstudio) ]] && f36_40_fanyi_helper
+
+	# 可以_在cloudstudio的编辑器中_获得翻译的结果
+	if [[ -f $(which cloudstudio) ]] && [[ -f $(which fanyi) ]]; then
+		(fanyi list | cloudstudio -) &
+	fi
+
+	return 0
+
+}
+
 
 # ==============================================================
 
@@ -481,6 +566,10 @@ f94_2828_30_main(){
 
 	# NOTE 把类似imgcat等_进行设置
 	f28_20_install_some_wmstudy_bin_tools
+
+	# NOTE 在cloudstudio安装一个npm的module_查找_英文单词的中文解释_等
+	# TODO 由于安装时间比较长_这里没有_在开始的时候就安装_以后需要的时候_再安装与使用
+	# f36_42_fy_lookup_english_dictionary_for_cloudstudio
 
 	# NOTE 下面是老版本p27的_这里不再调用了
 	# l10_install_me
