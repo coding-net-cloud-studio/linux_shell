@@ -1,10 +1,10 @@
 {
 	"mediaPreview.video.autoPlay":true,
 	"search.useIgnoreFiles":true,
-	"editor.fontSize": 20,
+	"editor.fontSize": 18,
 	"editor.mouseWheelZoom": true,
 	"terminal.integrated.experimentalImageSupport": true,
-	"terminal.integrated.fontSize": 18,
+	"terminal.integrated.fontSize": 16,
 	// "terminal.integrated.profiles.osx": {
 	// 	// This will override the builtin bash profile
 	// 	"bash": {
