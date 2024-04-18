@@ -1,6 +1,8 @@
 # z22_c6_d27_e22_labs_cs_linux_command_base
 10_Linux命令大全搜索工具_内容包含Linux命令手册_详解_学习_搜集. https://jaywcjlove.gitee.io/linux-command/
 
+敬请加我的微信 vx${这里是我们的微信} 提供_"小城卷王从大一开始准备诞生"_的_故事发展线索
+
 # NOTE 本教程是针对完全的初学者
 # NOTE 本教程是针对"泛开发者"
 # NOTE 泛开发者是指:在本职工作领域是专业人士,但不以编程作为谋生手段
