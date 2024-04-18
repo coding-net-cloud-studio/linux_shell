@@ -1,0 +1,5 @@
+1
+00:00:00,000 --> 00:00:04,005
+Finally, when the passage is read for the third time,
+
+

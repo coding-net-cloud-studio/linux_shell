@@ -1,0 +1,5 @@
+1
+00:00:00,000 --> 00:00:04,930
+Some students mark new vocabulary in a different color.
+
+

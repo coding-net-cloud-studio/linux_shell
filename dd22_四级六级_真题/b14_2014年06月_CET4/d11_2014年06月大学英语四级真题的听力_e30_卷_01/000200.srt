@@ -1,0 +1,5 @@
+1
+00:00:00,000 --> 00:00:06,001
+Some people, however, can get by with just a few hours of sleep at night.
+
+

@@ -1,0 +1,5 @@
+1
+00:00:00,000 --> 00:00:04,981
+Few doctors would have thought that there might be an exception to this.
+
+

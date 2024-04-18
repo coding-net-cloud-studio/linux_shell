@@ -1,0 +1,5 @@
+1
+00:00:00,000 --> 00:00:05,006
+In general, each of us needs about 8 hours of sleep each day
+
+
