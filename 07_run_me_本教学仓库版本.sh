@@ -552,6 +552,34 @@ l79_final_settings(){
 }
 
 # ==============================================================
+# REVIEW 在好几个地方_建立_linux_commands_目录_用于存放_linux_命令
+# NOTE 原因是_泛开发者_开始的cd_pwd_ls_命令都不熟悉
+v20_create_linux_commands_directory(){
+
+	if [[ -f .tutorial/d22_给d18增加前缀.txt ]]; then
+
+		while read -r line
+		do
+			mkdir -p /workspace/$line
+			mkdir -p ~/$line
+			mkdir -p /$line
+			mkdir -p /usr/bin/$line
+		done < ".tutorial/d22_给d18增加前缀.txt"
+	fi
+
+	return 0
+}
+
+# 被下面的_f94_2828_30_main()_函数_所调用
+z22_c6_d27_e22_linux_deal_with_this_club_space(){
+
+	# REVIEW 在好几个地方_建立_linux_commands_目录_用于存放_linux_命令
+	v20_create_linux_commands_directory
+
+	return 0
+}
+
+# ==============================================================
 # NOTE 定义main()函数的主体
 f94_2828_30_main(){
 
@@ -590,6 +618,8 @@ f94_2828_30_main(){
 	l07_this_git_call_script_to_install_vscode_ext
 
 	l79_final_settings
+
+	z22_c6_d27_e22_linux_deal_with_this_club_space
 
 	return 0
 }
