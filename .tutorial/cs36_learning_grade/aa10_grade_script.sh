@@ -28,7 +28,8 @@ if [[ -z $1 ]]; then
     exit 1
 fi
 
-
+# NOTE 当前需要被_评分的_文件_的路径
+# NOTE 该文件_可能_被学员_修改过
 export current_need_to_grade_file_path=$1
 
 # NOTE 用".tutorial"当分隔符去切分_上面的路径
@@ -80,7 +81,7 @@ l38_grade_simple(){
 }
 
 # =======================================================================
-
+# NOTE 被下面的f92_grade_by_student_answer_file()函数所调用
 f42_show_medal_to_leaner(){
 
 
@@ -102,11 +103,48 @@ f42_show_medal_to_leaner(){
     return 0
 }
 
+
+# =======================================================================
+# NOTE 当前需要被_评分的_文件_的路径
+# NOTE 该文件_可能_被学员_修改过
+# NOTE 该文件_也可能_没有被学员修改过
+# NOTE 需要不同的评分_方法_需要返回不同的信息
+f92_grade_by_student_answer_file(){
+
+    if [[ -f $current_need_to_grade_file_path ]]; then 
+
+        if [[ -f d46_模版_code_写入bash脚本.sh ]]; then 
+            export v22_10_md5sum_of_origin_tutorial_file=$(md5sum d46_模版_code_写入bash脚本.sh)
+            export v22_20_md5sum_of_student_file=$(md5sume ${current_need_to_grade_file_path})
+
+            if [[ ${v22_10_md5sum_of_origin_tutorial_file} == ${v22_20_md5sum_of_student_file} ]]; then
+                echo "学员_并没有_修改_该文件"
+            else
+                echo "学员_对于_答题文件_进行了修改_可以去进行评分"
+
+                f42_show_medal_to_leaner
+
+            fi
+
+            unset v22_10_md5sum_of_origin_tutorial_file
+            unset v22_20_md5sum_of_student_file
+        fi
+
+    fi
+
+    return 0
+}
+
+
 # =======================================================================
 
 main(){
 
-    f42_show_medal_to_leaner
+    # TODO 下面这条需要被删除_暂时保留
+    # f42_show_medal_to_leaner
+
+    f92_grade_by_student_answer_file
+
     return 0
 }
 
