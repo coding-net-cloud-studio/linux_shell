@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-export my_version=1050
-
 
 # ========================================================================================
 
@@ -38,26 +36,6 @@ export current_need_to_grade_file_path=$1
 export cs_club_tutorail_parent_path="${current_need_to_grade_file_path%/.tutorial*}"
 export cs_club_tutorail_path=${cs_club_tutorail_parent_path}/.tutorial
 # echo $cs_club_tutorail_path
-
-export cs_club_tutorial_b40_code_parent_path="${current_need_to_grade_file_path%/b40_code*}"
-
-export v20_article=b20_article
-export v22_video=b30_video
-export v24_code=b40_code
-export v26_run=b50_run
-export v27_demo=b60_demo
-
-export vb20_article=${cs_club_tutorial_b40_code_parent_path}/$v20_article
-export vb30_video=${cs_club_tutorial_b40_code_parent_path}/$v22_video
-export vb40_code=${cs_club_tutorial_b40_code_parent_path}/$v24_code
-export vb50_run=${cs_club_tutorial_b40_code_parent_path}/$v26_run
-export vb60_demo=${cs_club_tutorial_b40_code_parent_path}/$v27_demo
-
-echo $vb20_article
-echo $vb30_video
-echo $vb40_code
-echo $vb50_run
-echo $vb60_demo
 
 # NOTE 缺省的_判分_入口
 export cs_club_tutorail_learning_grade_script_path=${cs_club_tutorail_path}/cs36_learning_grade/aa10_grade_script.sh
@@ -106,17 +84,6 @@ l38_grade_simple(){
 
 # =======================================================================
 # NOTE 被下面的f92_grade_by_student_answer_file()函数所调用
-f32_show_demo_to_leaner(){
-
-    if [[ -d ${vb60_demo} ]]; then 
-        echo "展示demo演示"
-    fi
-
-    return 0
-}
-
-# =======================================================================
-# NOTE 被下面的f92_grade_by_student_answer_file()函数所调用
 f42_show_medal_to_leaner(){
 
 
@@ -154,9 +121,6 @@ f92_grade_by_student_answer_file(){
 
             if [[ ${v22_10_md5sum_of_origin_tutorial_file} == ${v22_20_md5sum_of_student_file} ]]; then
                 echo "学员_同学_你并没有_修改_该答题文件啊! 我们是通过md5sum判断的"
-
-                f32_show_demo_to_leaner
-
             else
                 echo "学员_同学_对于_答题文件_进行了修改_可以去进行评分"
 
