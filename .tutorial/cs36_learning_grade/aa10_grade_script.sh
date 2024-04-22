@@ -120,9 +120,9 @@ f92_grade_by_student_answer_file(){
             export v22_20_md5sum_of_student_file=$(md5sum ${current_need_to_grade_file_path} | awk '{print $1}')
 
             if [[ ${v22_10_md5sum_of_origin_tutorial_file} == ${v22_20_md5sum_of_student_file} ]]; then
-                echo "学员_并没有_修改_该文件"
+                echo "学员_同学_你并没有_修改_该答题文件啊! 我们是通过md5sum判断的"
             else
-                echo "学员_对于_答题文件_进行了修改_可以去进行评分"
+                echo "学员_同学_对于_答题文件_进行了修改_可以去进行评分"
 
                 f42_show_medal_to_leaner
 
@@ -145,10 +145,10 @@ main(){
     # TODO 下面这条需要被删除_暂时保留
     # f42_show_medal_to_leaner
 
-
-    echo $current_need_to_grade_file_path
-    md5sum ${answer_sheet_original_bash_script_file}
-    md5sum ${current_need_to_grade_file_path}
+    # NOTE 展示一些判断依据
+    # echo $current_need_to_grade_file_path
+    # md5sum ${answer_sheet_original_bash_script_file}
+    # md5sum ${current_need_to_grade_file_path}
 
 
     f92_grade_by_student_answer_file
