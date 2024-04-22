@@ -40,6 +40,8 @@ export cs_club_tutorail_path=${cs_club_tutorail_parent_path}/.tutorial
 # NOTE 缺省的_判分_入口
 export cs_club_tutorail_learning_grade_script_path=${cs_club_tutorail_path}/cs36_learning_grade/aa10_grade_script.sh
 
+export answer_sheet_original_bash_script_file=${cs_club_tutorail_path}/cs36_learning_grade/d46_模版_code_写入bash脚本.sh
+
 # echo "l32_28_缺省的grade评分脚本路径---> ${cs_club_tutorail_learning_grade_script_path}"
 
 # NOTE 缺省的_奖牌_目录
@@ -113,9 +115,9 @@ f92_grade_by_student_answer_file(){
 
     if [[ -f $current_need_to_grade_file_path ]]; then 
 
-        if [[ -f d46_模版_code_写入bash脚本.sh ]]; then 
-            export v22_10_md5sum_of_origin_tutorial_file=$(md5sum d46_模版_code_写入bash脚本.sh)
-            export v22_20_md5sum_of_student_file=$(md5sume ${current_need_to_grade_file_path})
+        if [[ -f ${answer_sheet_original_bash_script_file} ]]; then 
+            export v22_10_md5sum_of_origin_tutorial_file=$(md5sum ${answer_sheet_original_bash_script_file} | awk '{print $1}')
+            export v22_20_md5sum_of_student_file=$(md5sum ${current_need_to_grade_file_path} | awk '{print $1}')
 
             if [[ ${v22_10_md5sum_of_origin_tutorial_file} == ${v22_20_md5sum_of_student_file} ]]; then
                 echo "学员_并没有_修改_该文件"
@@ -142,6 +144,12 @@ main(){
 
     # TODO 下面这条需要被删除_暂时保留
     # f42_show_medal_to_leaner
+
+
+    echo $current_need_to_grade_file_path
+    md5sum ${answer_sheet_original_bash_script_file}
+    md5sum ${current_need_to_grade_file_path}
+
 
     f92_grade_by_student_answer_file
 
