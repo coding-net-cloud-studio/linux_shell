@@ -131,7 +131,7 @@ f32_show_demo_to_leaner(){
 
         if [[ -f ${vb60_demo}/${vc20_40_simple_name_of_the_file} ]]; then 
             # echo "展示_demo演示_的脚本"
-            source ${vb60_demo}/${vc20_40_simple_name_of_the_file}
+            bash ${vb60_demo}/${vc20_40_simple_name_of_the_file}
         else
             echo "没有找到_展示_demo演示_的脚本"
         fi
