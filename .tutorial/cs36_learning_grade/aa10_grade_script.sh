@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export my_version=1050
+export my_version=1060
 
 
 # ========================================================================================
@@ -59,6 +59,24 @@ echo $vb40_code
 echo $vb50_run
 echo $vb60_demo
 
+# NOTE 类似 date.sh
+export vc20_10_basename_of_the_file=$(basename ${current_need_to_grade_file_path})
+export vc20_20_parent_dir_name_of_the_file=$(dirname ${current_need_to_grade_file_path})
+# NOTE 类似 c030_date_显示和设置系统日期与时间
+export vc20_30_basename_of_the_parent_dir_name_of_the_file=$(basename ${vc20_20_parent_dir_name_of_the_file})
+echo -e "\n"
+echo $vc20_10_basename_of_the_file
+echo $vc20_20_parent_dir_name_of_the_file
+echo $vc20_30_basename_of_the_parent_dir_name_of_the_file
+# NOTE 类似 c030_date_显示和设置系统日期与时间###date.sh
+export vc20_40_simple_name_of_the_file=$vc20_30_basename_of_the_parent_dir_name_of_the_file"###"$vc20_10_basename_of_the_file
+
+echo $vc20_40_simple_name_of_the_file
+
+echo -e "\n"
+
+
+
 # NOTE 缺省的_判分_入口
 export cs_club_tutorail_learning_grade_script_path=${cs_club_tutorail_path}/cs36_learning_grade/aa10_grade_script.sh
 
@@ -110,6 +128,13 @@ f32_show_demo_to_leaner(){
 
     if [[ -d ${vb60_demo} ]]; then 
         echo "展示demo演示"
+
+        if [[ -f ${vb60_demo}/${vc20_40_simple_name_of_the_file} ]]; then 
+            # echo "展示_demo演示_的脚本"
+            source ${vb60_demo}/${vc20_40_simple_name_of_the_file}
+        else
+            echo "没有找到_展示_demo演示_的脚本"
+        fi
     fi
 
     return 0
