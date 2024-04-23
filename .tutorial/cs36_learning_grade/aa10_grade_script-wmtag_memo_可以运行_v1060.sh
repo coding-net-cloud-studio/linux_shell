@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-export my_version=1070
-
-export wmvar_show_echo_message="不展示"
+export my_version=1060
 
 
 # ========================================================================================
@@ -16,24 +14,6 @@ pause_60_second(){
 		# echo "sorry, Output timeout, please execute the command again !"
 		printf "\n时间已到,继续运行\n";
 	fi
-}
-
-wmlog_echo(){
-    
-    if [[ $wmvar_show_echo_message == "展示" ]]; then
-        if [[ -z $1 ]]; then
-            # echo "没有传入_内容_参数"
-            # echo "无法展示"
-            # echo "退出_展示_脚本"
-            return 1
-        else
-            # echo "传入了_内容_参数"
-            echo -e $1
-            return 0
-        fi
-    fi
-
-    return 0
 }
 
 
@@ -73,27 +53,27 @@ export vb40_code=${cs_club_tutorial_b40_code_parent_path}/$v24_code
 export vb50_run=${cs_club_tutorial_b40_code_parent_path}/$v26_run
 export vb60_demo=${cs_club_tutorial_b40_code_parent_path}/$v27_demo
 
-wmlog_echo $vb20_article
-wmlog_echo $vb30_video
-wmlog_echo $vb40_code
-wmlog_echo $vb50_run
-wmlog_echo $vb60_demo
+echo $vb20_article
+echo $vb30_video
+echo $vb40_code
+echo $vb50_run
+echo $vb60_demo
 
 # NOTE 类似 date.sh
 export vc20_10_basename_of_the_file=$(basename ${current_need_to_grade_file_path})
 export vc20_20_parent_dir_name_of_the_file=$(dirname ${current_need_to_grade_file_path})
 # NOTE 类似 c030_date_显示和设置系统日期与时间
 export vc20_30_basename_of_the_parent_dir_name_of_the_file=$(basename ${vc20_20_parent_dir_name_of_the_file})
-wmlog_echo "\n"
-wmlog_echo $vc20_10_basename_of_the_file
-wmlog_echo $vc20_20_parent_dir_name_of_the_file
-wmlog_echo $vc20_30_basename_of_the_parent_dir_name_of_the_file
+echo -e "\n"
+echo $vc20_10_basename_of_the_file
+echo $vc20_20_parent_dir_name_of_the_file
+echo $vc20_30_basename_of_the_parent_dir_name_of_the_file
 # NOTE 类似 c030_date_显示和设置系统日期与时间###date.sh
 export vc20_40_simple_name_of_the_file=$vc20_30_basename_of_the_parent_dir_name_of_the_file"###"$vc20_10_basename_of_the_file
 
-wmlog_echo $vc20_40_simple_name_of_the_file
+echo $vc20_40_simple_name_of_the_file
 
-wmlog_echo "\n"
+echo -e "\n"
 
 
 
@@ -147,13 +127,13 @@ l38_grade_simple(){
 f32_show_demo_to_leaner(){
 
     if [[ -d ${vb60_demo} ]]; then 
-        wmlog_echo "展示demo演示"
+        echo "展示demo演示"
 
         if [[ -f ${vb60_demo}/${vc20_40_simple_name_of_the_file} ]]; then 
             # echo "展示_demo演示_的脚本"
             bash ${vb60_demo}/${vc20_40_simple_name_of_the_file}
         else
-            wmlog_echo "没有找到_展示_demo演示_的脚本"
+            echo "没有找到_展示_demo演示_的脚本"
         fi
     fi
 
@@ -174,7 +154,7 @@ f42_show_medal_to_leaner(){
             echo "你已经超过了,本club教程 56% 的小伙伴!"
             echo "再加把劲,在今日排行榜,力争上游!"
         else
-            wmlog_echo "没有找到_祝贺_的图片"
+            echo "没有找到_祝贺_的图片"
         fi
     fi
 
