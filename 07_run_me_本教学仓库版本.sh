@@ -645,6 +645,33 @@ gs22_bc20_30_show_shiren_image(){
 
 # ==============================================================
 
+gs(){
+
+	if [[ -f $(which cloudstudio) ]]; then
+		# 已经位于cloudstudio.net的工作空间以内了
+		if [[ $(whoami) == "root" ]]; then
+			echo "$(whoami)"
+			if [[ -d /workspace ]]; then
+				# 这里可以执行本脚本
+				echo "可以执行后继的操作"
+
+				# REVIEW 通过诗人展开古诗的开始
+				gs22_bc20_30_show_shiren_image
+
+			fi
+		else
+			# echo "不知道是_啥环境_不能运行本脚本"
+			# 不符合运行条件_退出本脚本的运行
+			exit 0
+		fi
+	fi
+
+	return 0
+}
+
+
+# ==============================================================
+
 
 f96_3060_check_environment_and_run_main(){
 
@@ -683,9 +710,10 @@ main(){
 }
 
 # NOTE 调用main()函数
-main
+# main
 
 # ==============================================================
 # 下面是_正式_的入口
 # echo $*
 # [ -z "$1" ] && eval f96_3060_check_environment_and_run_main || eval $1 $*
+[ -z "$1" ] && eval main || eval $1 $*
