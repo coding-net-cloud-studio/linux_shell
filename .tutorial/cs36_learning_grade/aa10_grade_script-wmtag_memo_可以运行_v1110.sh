@@ -169,90 +169,21 @@ f32_show_demo_to_leaner(){
 }
 
 # =======================================================================
-
-# NOTE 被下面的gs38_20_call_show_gs()函数所调用
-# 定义一个函数_用于随机选择并显示一个_祝贺古诗_文本文件的内容
-gs30_bg58_30_show_random_gs_text_file() {
-
-    # 获取所有匹配sg*.txt模式的文件列表
-    files=($(ls sg*.txt))
-
-    # 检查是否有匹配的文件
-    if [ ${#files[@]} -eq 0 ]; then
-        echo "没有发现古诗文本文件."
-        return 1
-    fi
-
-    # 随机选择一个文件
-    random_index=$((RANDOM %${#files[@]}))
-    selected_file="${files[$random_index]}"
-
-    # 显示选中的文件内容
-    cat "$selected_file"
-
-    return 0
-}
-
-# NOTE 被下面的f42_show_medal_to_leaner()函数所调用
-gs38_20_call_show_gs(){
-
-    export vgs38_20_10_OLDPWD=$(pwd)
-
-    # NOTE 如果没有传入参数_意思就是_随机选取一个
-    if [[ -z $1 ]]; then
-        # NOTE 这里是随机展示一首祝贺古诗
-        if [[ -d gs74_祝贺古文诗词_80首_拼音_club_终端 ]]; then
-            cd gs74_祝贺古文诗词_80首_拼音_club_终端/
-
-            # 用于随机选择并显示一个_祝贺古诗_文本文件的内容
-            gs30_bg58_30_show_random_gs_text_file
-        fi
-    else
-        # echo "传入了_内容_参数"
-        # echo -e $1
-        # NOTE 如果传递有参数被本函数_就使用_$1_参数_当做必须被展示的古诗
-        if [[ -d gs74_祝贺古文诗词_80首_拼音_club_终端 ]]; then
-            cd gs74_祝贺古文诗词_80首_拼音_club_终端/
-
-            if [[ -f $1 ]]; then
-                # NOTE 这里是找到了制定的文件
-                cat $1
-            else
-                # NOTE 这里是没有找到制定的文件
-                # REVIEW 为了避免出现尴尬的情况_就使用随机挑选一首古诗去展示了
-                # 用于随机选择并显示一个_祝贺古诗_文本文件的内容
-                gs30_bg58_30_show_random_gs_text_file
-            fi
-        fi
-    fi
-
-    # NOTE 返回原始的位置
-    cd $vgs38_20_10_OLDPWD
-
-    return 0
-}
-
-
-# =======================================================================
 # NOTE 被下面的f92_grade_by_student_answer_file()函数所调用
 f42_show_medal_to_leaner(){
 
 
 
     if [[ -f $(which imgcat) ]]; then
-        # NOTE 下面被注释的代码段_长期保留_这是用于测试程序逻辑的一种方法
-        # if [[ -f ${cs_club_tutorail_learning_medal_path}/b11_我自学_我自讲.jpg ]]; then
-        #     # NOTE 完成任务_给一个勋章
-        #     echo "cloudstudio club 社区 发来贺电,您获得如下的勋章! "
-        #     imgcat ${cs_club_tutorail_learning_medal_path}/b11_我自学_我自讲.jpg
-        #     echo "你已经超过了,本club教程 56% 的小伙伴!"
-        #     echo "再加把劲,在今日排行榜,力争上游!"
-        # else
-        #     wmlog_echo "没有找到_祝贺_的图片"
-        # fi
-
-        # NOTE 这里展示_祝贺古诗的_内容
-        gs38_20_call_show_gs
+        if [[ -f ${cs_club_tutorail_learning_medal_path}/b11_我自学_我自讲.jpg ]]; then
+            # NOTE 完成任务_给一个勋章
+            echo "cloudstudio club 社区 发来贺电,您获得如下的勋章! "
+            imgcat ${cs_club_tutorail_learning_medal_path}/b11_我自学_我自讲.jpg
+            echo "你已经超过了,本club教程 56% 的小伙伴!"
+            echo "再加把劲,在今日排行榜,力争上游!"
+        else
+            wmlog_echo "没有找到_祝贺_的图片"
+        fi
     fi
 
     # REVIEW ollama_调用_qwen_0.5写一首_祝贺

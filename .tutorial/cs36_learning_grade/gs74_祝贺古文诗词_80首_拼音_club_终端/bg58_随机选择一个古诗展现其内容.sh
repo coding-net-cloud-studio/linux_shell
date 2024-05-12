@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 
-# 定义一个函数，用于随机选择并显示一个文本文件的内容
-show_random_text_file() {
+# 定义一个函数,用于随机选择并显示一个_祝贺古诗_文本文件的内容
+gs30_bg58_30_show_random_gs_text_file() {
     # 获取所有匹配sg*.txt模式的文件列表
     files=($(ls sg*.txt))
     
@@ -21,4 +21,4 @@ show_random_text_file() {
 }
 
 # 调用函数
-show_random_text_file
+gs30_bg58_30_show_random_gs_text_file
