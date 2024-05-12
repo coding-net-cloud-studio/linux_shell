@@ -625,6 +625,25 @@ f94_2828_30_main(){
 }
 
 # ==============================================================
+# NOTE 设置变量_古诗
+gs22_bc10_30_env_of_shiren(){
+
+	export gs22_sg77_yuqian=".tutorial/cs36_learning_grade/gs22_祝贺古文诗词_80首_诗人/sg77_石灰吟_于谦.png"
+	return 0
+}
+
+# REVIEW 通过诗人展开古诗的开始
+gs22_bc20_30_show_shiren_image(){
+
+	# NOTE 设置变量_古诗
+	gs22_bc10_30_env_of_shiren
+
+	[[ -f ${gs22_sg77_yuqian} ]] && imgcat ${gs22_sg77_yuqian}
+
+	return 0
+}
+
+# ==============================================================
 
 
 f96_3060_check_environment_and_run_main(){
@@ -639,6 +658,9 @@ f96_3060_check_environment_and_run_main(){
 
 				# 这里是main函数
 				f94_2828_30_main
+
+				# REVIEW 通过诗人展开古诗的开始
+				gs22_bc20_30_show_shiren_image
 
 			fi
 		else
