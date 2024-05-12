@@ -20,7 +20,14 @@ pause_60_second(){
 		# echo "sorry, Output timeout, please execute the command again !"
 		printf "\n时间已到,继续运行\n";
 	fi
+
+    return 0
 }
+
+# pause_60_second(){
+#     # NOTE 我啥都不做
+#     return 0
+# }
 
 wmlog_echo(){
 
@@ -102,6 +109,7 @@ wmlog_echo "\n"
 
 
 # NOTE 缺省的_判分_入口
+export cs_club_tutorial_learning_grade_dir=${cs_club_tutorail_path}/cs36_learning_grade
 export cs_club_tutorail_learning_grade_script_path=${cs_club_tutorail_path}/cs36_learning_grade/aa10_grade_script.sh
 
 export answer_sheet_original_bash_script_file=${cs_club_tutorail_path}/cs36_learning_grade/d46_模版_code_写入bash脚本.sh
@@ -169,6 +177,82 @@ f32_show_demo_to_leaner(){
 }
 
 # =======================================================================
+# NOTE 展示该古诗的_图像_这个图像_是_由_AIGC_文本生成得到的图像
+gs30_18_show_specific_gs_image_file(){
+    local gs_text_file=$1
+    local gs_image_file="还没有明确"
+
+    local v10_base_name=$(basename $gs_text_file .txt)
+    local gs_image_file="${v10_base_name}.png"
+
+    export vgs30_30_10_OLDPWD=$(pwd)
+
+    if [[ -d ${cs_club_tutorial_learning_grade_dir}/gs90_祝贺古文诗歌_80首_图画 ]]; then
+        cd ${cs_club_tutorial_learning_grade_dir}/gs90_祝贺古文诗歌_80首_图画/
+
+        if [[ -f ${gs_image_file} ]]; then
+            if [[ -f $(which imgcat) ]]; then
+                imgcat ${gs_image_file}
+            fi
+        fi
+
+    fi
+
+    # NOTE 返回原来的路径中去
+    cd ${vgs30_30_10_OLDPWD}
+
+    return 0
+}
+
+# NOTE 本函数_被下面的_gs30_bg58_30_show_random_gs_text_file()函数_所调用
+# 定义一个函数,用于读取文本文件并显示特定的行
+gs30_22_show_specific_gs_text_lines() {
+    local file=$1
+    local skip_lines=2 # 初始化跳过的行数
+    local line_number=0
+    local first_line=""
+
+    # 使用while循环读取文件内容
+    while IFS= read -r line; do
+        line_number=$((line_number + 1))
+
+        if [[ $line_number -eq 1 ]]; then
+            # NOTE 第1行是特殊处理的
+            # NOTE 第1行类似如下格式
+            # sg17_送元二使安西_王维
+
+            # 使用awk处理第一行,以"_"作为分隔符,不打印第一个字段
+            first_line=$(echo "$line" | awk -F '_' '{for(i=2; i<=NF; i++) printf("%s ",$i); print ""}' )
+            echo -e "${first_line}"
+            # echo -e "\n"
+        fi
+
+        # 如果行数大于2且行不为空,则打印
+        if [[ $line_number -eq 2 ]]; then
+            # NOTE 跳过第二行
+            # NOTE 第2行_是全部的诗文
+            continue
+        fi
+        if [ $line_number -gt 2 ] && [ -n "$line" ]; then
+            echo "$line"
+        fi
+    done < "$file"
+}
+
+# NOTE 本函数被_gs30_bg58_30_show_random_gs_text_file()函数所调用
+# 展现_该古诗的_图像_和_带有拼音的文本内容
+gs30_38_show_gs_both_image_and_text(){
+
+    local gs_text_file=$1
+
+    # NOTE 用imgcat在club.cloudstudio的终端中_展现_该古诗的_文字生成的_图片
+    gs30_18_show_specific_gs_image_file "${gs_text_file}"
+
+    # NOTE 只是_显示选中文件的_特定内容
+    gs30_22_show_specific_gs_text_lines "${gs_text_file}"
+
+    return 0
+}
 
 # NOTE 被下面的gs38_20_call_show_gs()函数所调用
 # 定义一个函数_用于随机选择并显示一个_祝贺古诗_文本文件的内容
@@ -187,8 +271,22 @@ gs30_bg58_30_show_random_gs_text_file() {
     random_index=$((RANDOM %${#files[@]}))
     selected_file="${files[$random_index]}"
 
-    # 显示选中的文件内容
-    cat "$selected_file"
+    # 显示选中的文件_全部内容
+    # cat "$selected_file"
+
+    # NOTE 只是_显示选中文件的_特定内容
+    # gs30_22_show_specific_lines "$selected_file"
+
+    # 展现_该古诗的_图像_和_带有拼音的文本内容
+    gs30_38_show_gs_both_image_and_text "$selected_file"
+
+    echo -e "\n"
+    # echo -e "恭喜你! 你的答案可以执行! 上面是送给你的勋章!"
+
+    # NOTE 完成任务_给一个勋章
+    echo "cloudstudio club 社区 发来贺电,您获得如上的勋章! "
+    echo "你已经超过了,本club教程 众多的 小伙伴!"
+    echo "再加把劲,在今日排行榜,力争上游!"
 
     return 0
 }
@@ -201,8 +299,8 @@ gs38_20_call_show_gs(){
     # NOTE 如果没有传入参数_意思就是_随机选取一个
     if [[ -z $1 ]]; then
         # NOTE 这里是随机展示一首祝贺古诗
-        if [[ -d gs74_祝贺古文诗词_80首_拼音_club_终端 ]]; then
-            cd gs74_祝贺古文诗词_80首_拼音_club_终端/
+        if [[ -d ${cs_club_tutorial_learning_grade_dir}/gs74_祝贺古文诗词_80首_拼音_club_终端 ]]; then
+            cd ${cs_club_tutorial_learning_grade_dir}/gs74_祝贺古文诗词_80首_拼音_club_终端/
 
             # 用于随机选择并显示一个_祝贺古诗_文本文件的内容
             gs30_bg58_30_show_random_gs_text_file
@@ -211,8 +309,8 @@ gs38_20_call_show_gs(){
         # echo "传入了_内容_参数"
         # echo -e $1
         # NOTE 如果传递有参数被本函数_就使用_$1_参数_当做必须被展示的古诗
-        if [[ -d gs74_祝贺古文诗词_80首_拼音_club_终端 ]]; then
-            cd gs74_祝贺古文诗词_80首_拼音_club_终端/
+        if [[ -d ${cs_club_tutorial_learning_grade_dir}/gs74_祝贺古文诗词_80首_拼音_club_终端 ]]; then
+            cd ${cs_club_tutorial_learning_grade_dir}/gs74_祝贺古文诗词_80首_拼音_club_终端/
 
             if [[ -f $1 ]]; then
                 # NOTE 这里是找到了制定的文件
@@ -311,7 +409,7 @@ pe20_30_judge_by_compare_with_original_md5sum_value(){
         f32_show_demo_to_leaner
 
     else
-        echo "学员_同学_对于_答题文件_进行了修改_可以去进行评分"
+        # echo "学员_同学_对于_答题文件_进行了修改_可以去进行评分"
 
         f42_show_medal_to_leaner
 
