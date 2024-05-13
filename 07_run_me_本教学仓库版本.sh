@@ -98,6 +98,9 @@ f23_install_some_software(){
 			lsof net-tools \
 			psmisc \
 			file \
+			rsync \
+			curl \
+			direnv \
 			sqlite3 libsqlite3-dev
 	fi
 
@@ -560,10 +563,10 @@ v20_create_linux_commands_directory(){
 
 		while read -r line
 		do
-			mkdir -p /workspace/$line
-			mkdir -p ~/$line
-			mkdir -p /$line
-			mkdir -p /usr/bin/$line
+			mkdir -p /workspace/mm/$line
+			# mkdir -p ~/$line
+			# mkdir -p /$line
+			# mkdir -p /usr/bin/$line
 		done < ".tutorial/d22_给d18增加前缀.txt"
 	fi
 

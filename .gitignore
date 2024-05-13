@@ -33,6 +33,10 @@
 11_可以删除/
 # dd22_四级六级_真题/
 
+!mm/.gitkeep
+mm/*
+mm/
+
 # # Byte-compiled / optimized / DLL files
 # __pycache__/
 # *.py[cod]

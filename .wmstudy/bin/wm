@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+
+current_time=$(date +"%Y-%m-%d %H:%M:%S")
+# echo "$current_time"
+
+# ===================================================================
+
+main(){
+
+    if [[ -f $(which cloudstudio) ]]; then
+        if [[ -d /workspace/mm ]]; then
+            cd /workspce/mm
+            pwd
+        fi
+    fi
+
+    return 0
+}
+
+# ===================================================================
+
+[ -z $1 ] && eval main || eval $1
