@@ -10,7 +10,7 @@ main(){
 
     if [[ -f $(which cloudstudio) ]]; then
         if [[ -d /workspace/mm ]]; then
-            cd /workspce/mm
+            cd /workspace/mm
             pwd
         fi
     fi
