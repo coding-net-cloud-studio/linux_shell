@@ -1,0 +1,12 @@
+[
+  ["ls", "pwd", "cd", "id"],
+  ["date", "cal", "which", "history"],
+  ["touch", "mkdir", "rmdir", "mv"],
+  ["rm", "man", "cp", "cat"],
+  ["nl", "more", "echo", "wc"],
+  ["sed", "head", "tail", "cut"],
+  ["df", "du", "w", "apt-get"],
+  ["tree", "whereis", "find", "file"],
+  ["ps", "sort", "kill", "ln"],
+  ["wget", "tar", "md5sum", "xargs"]
+]
