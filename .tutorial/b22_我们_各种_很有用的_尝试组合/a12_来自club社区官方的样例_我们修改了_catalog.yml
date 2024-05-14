@@ -1,0 +1,50 @@
+# 课程目录配置
+
+#  每个chapter即对应课程预览中的一个章节
+#  需要为每个章节指定章节名(title)、章节内容（article：markdown 文件地址）、项目内的练习代码地址（code：代码文件）、以及课程视频地址（video：iframe地址）
+#  学生使用时，会跟随章节的切换，自动切换内容、视频以及代码练习。相关运行命令也会随之更换
+#  注：
+#  1. 如没有对应资源，相关字段保留并留空
+#  2. 视频课程地址请使用视频网站提供的iframe分享代码
+
+chapters:  
+  - title: "章节介绍"
+    article: "00_Overview.md"
+    code: "../exercise.py"
+    video: ""
+    run: py_爬虫访问某一个_混元大模型_api去远程判断 ./exercise.py
+  - title: "01 数据类型和数据结构"
+    article: "01_Datatypes.md"
+    code: "../exercise.py"
+    video: ""
+    run: ollama run llava:6b 根据照片写一首古诗 ./exercise.py
+  - title: "02 容器"
+    article: "02_Containers.md"
+    code: "../exercise.py"
+    video: ""
+    run: make -f ../mm/Makefile check ./exercise.py
+  - title: "03 格式化"
+    article: "03_Formatting.md"
+    code: "../exercise.py"
+    video: ""
+    run: wmcloudstudio ./exercise.py
+  - title: "04 序列"
+    article: "04_Sequences.md"
+    code: "../exercise.py"
+    video: ""
+    run: grasspython -f aa10_grade.py ./exercise.py
+  - title: "05 collections 模块"
+    article: "05_Collections.md"
+    code: "../exercise.py"
+    video: ""
+    run: /usr/bin/aa10_grade_python_installer ./exercise.py
+  - title: "06 列表推导式"
+    article: "06_List_comprehension.md"
+    code: "../exercise.py"
+    video: ""
+    run: python ./exercise.py
+  - title: "07 对象"
+    article: "07_Objects.md"
+    code: "../exercise.py"
+    video: ""
+    run: python ./exercise.py
