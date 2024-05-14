@@ -47,6 +47,52 @@ wmlog_echo(){
     return 0
 }
 
+# ----------------------------------------------------------------------------------------
+# NOTE 这个函数通过模拟每个字符的输出和等待,来模拟打字效果.你可以通过调整typing_speed变量的值来改变打字速度.
+type_effect() {
+    # 检查文件是否存在
+    if [ ! -f "$1" ]; then
+        echo "File does not exist!"
+        return 1
+    fi
+
+    # 设置打字速度,单位是字符每秒
+    local typing_speed=10
+
+    # 计算每个字符之间需要等待的时间(以秒为单位)
+    # 使用bash的内建命令进行计算,不需要bc
+    # 计算每个字符之间需要等待的时间.我们使用awk命令来执行浮点数除法,因为bash本身不支持浮点数运算.
+    # 1.0 / $typing_speed计算每个字符之间的等待时间,结果赋值给局部变量delay.
+    local delay=$(awk "BEGIN {print 1.0 /$typing_speed}")
+
+    # 逐行读取文件内容
+    # while IFS= read -r line || [[ -n "$line" ]]; do:这个循环用于逐行读取文件内容.
+    # IFS= read -r line是一个常见的bash idiom,用于读取文件的每一行,同时保持行的完整性(-r选项防止反斜杠转义).
+    # || [[ -n "$line" ]]确保即使在读取到文件末尾时,如果最后一行是非空行,也会执行循环体.
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        # 逐字符输出行内容
+        for (( i=0; i<${#line}; i++ )); do
+            echo -n "${line:$i:1}"
+            sleep $delay
+        done
+        echo "" # 输出换行符,移动到下一行
+    done < "$1"
+
+    return 0
+}
+
+# NOTE 下面是上述函数的注释
+# for (( i=0; i<${#line}; i++ )); do:这个循环用于逐个字符地输出每一行.${#line}是bash的参数扩展,用于获取line变量的长度(即字符数).
+# echo -n "${line:$i:1}":这个命令输出当前字符.${line:$i:1}是bash的参数扩展,用于获取line变量中从索引i开始的第一个字符.-n选项告诉echo不要在输出后添加换行符.
+# sleep $delay:这个命令使脚本暂停delay秒,模拟打字速度.
+# echo "":在输出完一行所有字符后,输出一个空行,模拟换行.
+# done < "$1":这个命令将文件描述符0(标准输入)重定向到文件"$1",这样read命令就会从文件中读取内容,而不是从键盘.
+
+# 使用示例
+# type_effect "path/to/your/file.txt"
+# type_effect "sg73_菩萨蛮_书江西造口壁_辛弃疾.txt"
+# type_effect "/etc/passwd"
+
 
 # ========================================================================================
 
