@@ -1,15 +1,28 @@
 #!/usr/bin/env bash
 
+export v20_article=b20_article
+export v23_demo=b30_video
+export v24_code=b40_code
+export v24_20_code_template_orignal=b42_code_template_original
+export v25_run=b50_run
+export v26_demo=b60_demo
+export v27_include_before=b70_include_before
+export v29_include_after=b72_include_after
+
 export catalog_file_name=catalog.yml
 export v38_output_catalog_yml_file=d38_catalog.yml
 export v40_change_from_v38_yml_file=d40_catalog_current.yml
 export v46_code_template_file=d46_模版_code_写入bash脚本.sh
 export v54_b50_run_bash_script_template="db50_20_模版_b50_run_写入bash脚本.sh"
 
+export c55_b50_run_me_demo_file_name="cb55_b50_20_run_me_part_for_ab50_20_run_me.sh"
+
 # NOTE 同一个文件_被拷贝到多个不同的目录中去
 export v50_code_file_md5sum_file=d50_catalog_b40_code_file_md5sum.sh
 
 export d36_grade_directory=../cs36_learning_grade
+
+
 
 l30_change_catalog_directory_name(){
     if [[ -f $v38_output_catalog_yml_file ]]; then
@@ -76,7 +89,31 @@ l54_copy_run_me_code_template_file_to_grade_directory(){
     return 0
 }
 
-l58_copy_other_files_to_tutorial_directory(){
+l60_10_copy_c55_b50_run_me_demo_file_to_tutorial_directory(){
+
+    # NOTE 拷贝到上层目录中去
+    if [[ -f ${v25_run}/${c55_b50_run_me_demo_file_name} ]]; then
+        cp -f ${v25_run}/${c55_b50_run_me_demo_file_name} ../${c55_b50_run_me_demo_file_name}
+    fi
+
+    return 0
+}
+
+l60_20_copy_c55_b50_run_me_demo_file_to_grade_directory(){
+
+    if [[ -f ${v25_run}/${c55_b50_run_me_demo_file_name} ]]; then
+        if [[ -d $d36_grade_directory ]]; then
+            cp -f ${v25_run}/${c55_b50_run_me_demo_file_name} $d36_grade_directory/
+        else
+            mkdir -p $d36_grade_directory/
+            cp -f ${v25_run}/${c55_b50_run_me_demo_file_name} $d36_grade_directory/
+        fi
+    fi
+
+    return 0
+}
+
+l78_copy_other_files_to_tutorial_directory(){
 
     export v12_tutorail_data_d22=d22_给d18增加前缀.txt
 
@@ -103,7 +140,11 @@ main(){
 
     l54_copy_run_me_code_template_file_to_grade_directory
 
-    l58_copy_other_files_to_tutorial_directory
+    l60_10_copy_c55_b50_run_me_demo_file_to_tutorial_directory
+
+    l60_20_copy_c55_b50_run_me_demo_file_to_grade_directory
+
+    l78_copy_other_files_to_tutorial_directory
 
     return 0
 }
