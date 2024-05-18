@@ -12,6 +12,7 @@ export v29_include_after=b72_include_after
 export catalog_file_name=catalog.yml
 export v38_output_catalog_yml_file=d38_catalog.yml
 export v40_change_from_v38_yml_file=d40_catalog_current.yml
+export v44_student_exercise_file="d44_模版_code_写入bash脚本_b40_code_学生_练习文件.sh"
 export v46_code_template_file=d46_模版_code_写入bash脚本.sh
 export v54_b50_run_bash_script_template="db50_20_模版_b50_run_写入bash脚本.sh"
 
@@ -53,9 +54,26 @@ l34_copy_d40_to_tutorial_directory(){
     return 0
 }
 
-l38_copy_grade_code_template_file_to_grade_directory(){
+l36_copy_student_exercise_code_template_file_to_grade_directory(){
 
-    # NOTE 如果存在_代码的模版文件_拷贝到_评分目录中去
+    # NOTE 如果存在_代码的模版文件_拷贝到_评分目录中去_这里是_run的_run_me的模版
+    # NOTE 在评分的时候_用md5sum_把该_代码的模版文件_进行处理_用于判断_答案_文件是否给学员给更改过
+    if [[ -f $v44_student_exercise_file ]]; then
+        if [[ -d $d36_grade_directory ]]; then
+            cp -f $v44_student_exercise_file $d36_grade_directory/
+        else
+            mkdir -p $d36_grade_directory
+            cp -f $v44_student_exercise_file $d36_grade_directory/
+        fi
+    fi
+
+    return 0
+}
+
+# FIXME 正在修改这里
+l40_copy_run_me_code_template_file_to_grade_directory(){
+
+    # NOTE 如果存在_代码的模版文件_拷贝到_评分目录中去_这里是_run的_run_me的模版
     # NOTE 在评分的时候_用md5sum_把该_代码的模版文件_进行处理_用于判断_答案_文件是否给学员给更改过
     if [[ -f $v46_code_template_file ]]; then
         if [[ -d $d36_grade_directory ]]; then
@@ -136,7 +154,9 @@ main(){
 
     l34_copy_d40_to_tutorial_directory
 
-    l38_copy_grade_code_template_file_to_grade_directory
+    l36_copy_student_exercise_code_template_file_to_grade_directory
+
+    l40_copy_run_me_code_template_file_to_grade_directory
 
     l54_copy_run_me_code_template_file_to_grade_directory
 
