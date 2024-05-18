@@ -446,8 +446,11 @@ f92_grade_by_student_answer_file(){
 # NOTE 传入一个md5sum的值_作为_$1
 pe20_30_judge_by_compare_with_original_md5sum_value(){
 
-    export v22_10_md5sum_of_origin_tutorial_file=$1
-    export v22_20_md5sum_of_student_file=$(md5sum ${current_need_to_grade_file_path} | awk '{print $1}')
+    export v22_06_current_student_anwser_file=$1
+
+    export v22_10_md5sum_of_origin_tutorial_file=$2
+
+    export v22_20_md5sum_of_student_file=$(md5sum ${v22_06_current_student_anwser_file} | awk '{print $1}')
 
     if [[ ${v22_10_md5sum_of_origin_tutorial_file} == ${v22_20_md5sum_of_student_file} ]]; then
         echo "学员_同学_你并没有_修改_该答题文件啊! 我们是通过md5sum判断的"
@@ -479,17 +482,30 @@ pf24_20_grade_by_student_answer_file_after_embedding_b60_demo_into_b40_code(){
 
     if [[ -f $current_need_to_grade_file_path ]]; then
 
+        # FIXME 正在处理这里
+        echo -e 3008_${current_need_to_grade_file_path}
+
         # NOTE 取出_类似_如下的内容_
         local directory_path=$(dirname ${current_need_to_grade_file_path})
+
+        echo -e 3010_${directory_path}
 
         # NOTE 取出_类似_如下的内容_c014_ls_展示目录中文件及其属性信息
         local directory_name=$(basename $(dirname ${current_need_to_grade_file_path}) )
 
-        # NOTE 取出_类似_如下的内容_ls.sh
-        local short_file_name=$(basename ${current_need_to_grade_file_path})
+        # NOTE 取出_类似_如下的内容_ls____run_me.sh
+        local short_file_name_with_suffix=$(basename ${current_need_to_grade_file_path})
+
+        local short_file_name_temp=$(echo ${short_file_name_with_suffix} | awk -F"____run_me" '{print $1$2}')
+
+        local short_file_name=$short_file_name_temp
+
+        echo 3030_${short_file_name}
 
         #  NOTE 拼接出来一个_特征格式_类似如下_"c014_ls_展示目录中文件及其属性信息###ls.sh"
         local md5sum_mark="${directory_name}###${short_file_name}"
+
+        echo -e 3040_${md5sum_mark}
 
         local the_file_judge_file_name="还没有给文件名赋值"
 
@@ -507,7 +523,15 @@ pf24_20_grade_by_student_answer_file_after_embedding_b60_demo_into_b40_code(){
             the_file_original_md5sum=$(echo $the_file_judge_file_name | awk -F"###" '{print $NF}')
             if [[ ${the_file_original_md5sum}  != "还没有赋值" ]]; then
                 # NOTE 调用函数_去做判断
-                pe20_30_judge_by_compare_with_original_md5sum_value ${the_file_original_md5sum}
+                echo -e 4030_${the_file_original_md5sum}
+
+                local current_student_file_need_to_be_grade="还没有赋值"
+                # NOTE 拼接出来_类似如下的全路径名称
+                # /workspace/mlabspace/c06_d27_e22_36_linux/21_wmsrc/.tutorial/126_z22_c06_c33_0030_tutorial/b40_code/c058_rmdir_删除空目录文件/rmdir.sh
+                current_student_file_need_to_be_grade=${directory_path}/${short_file_name}
+
+                pe20_30_judge_by_compare_with_original_md5sum_value ${current_student_file_need_to_be_grade} ${the_file_original_md5sum}
+
             else
                 echo "pf24_20_3030_判断依据出现问题_无法判断_学员_是否修改过_该文件"
             fi
