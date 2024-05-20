@@ -5,8 +5,8 @@ export my_version=1100
 # export wmvar_show_echo_message="展示"
 export wmvar_show_echo_message="不展示"
 
-# export wmvar_demonstrate_how_to_play="展示"
-export wmvar_demonstrate_how_to_play="不展示"
+export wmvar_demonstrate_how_to_play="展示"
+# export wmvar_demonstrate_how_to_play="不展示"
 
 
 # ========================================================================================
@@ -236,6 +236,8 @@ f32_show_demo_to_learner(){
     if [[ $wmvar_demonstrate_how_to_play == "展示" ]]; then
         # NOTE 如果演示文件存在
         if [[ -f ${cs_club_tutorial_learning_show_demo_to_learner} ]]; then
+
+            echo -e 6020_"source ${cs_club_tutorial_learning_show_demo_to_learner} ${show_demo_to_learner_function}"
             source ${cs_club_tutorial_learning_show_demo_to_learner} ${show_demo_to_learner_function}
         fi
     fi
@@ -479,6 +481,7 @@ pe20_30_judge_by_compare_with_original_md5sum_value(){
     if [[ ${v22_10_md5sum_of_origin_tutorial_file} == ${v22_20_md5sum_of_student_file} ]]; then
         echo "学员_同学_你并没有_修改_该答题文件啊! 我们是通过md5sum判断的"
 
+        echo -e 5010_"f32_show_demo_to_learner ${v22_23_show_demo_to_learner_function}"
         f32_show_demo_to_learner ${v22_23_show_demo_to_learner_function}
 
     else
@@ -568,6 +571,7 @@ pf24_20_grade_by_student_answer_file_after_embedding_b60_demo_into_b40_code(){
                 # /workspace/mlabspace/c06_d27_e22_36_linux/21_wmsrc/.tutorial/126_z22_c06_c33_0030_tutorial/b40_code/c058_rmdir_删除空目录文件/rmdir.sh
                 current_student_file_need_to_be_grade=${directory_path}/${short_file_name}
 
+                echo -e 4060_"pe20_30_judge_by_compare_with_original_md5sum_value ${current_student_file_need_to_be_grade} ${the_file_original_md5sum} ${show_demo_to_learner_function_name_of_cb55}"
                 pe20_30_judge_by_compare_with_original_md5sum_value ${current_student_file_need_to_be_grade} ${the_file_original_md5sum} ${show_demo_to_learner_function_name_of_cb55}
 
             else
