@@ -165,6 +165,11 @@ export answer_sheet_original_bash_script_file=${cs_club_tutorail_path}/cs36_lear
 # NOTE 缺省的_奖牌_目录
 export cs_club_tutorail_learning_medal_path=${cs_club_tutorail_path}/cs36_learning_grade/dm42_learning_medal
 
+# NOTE 在评价的时候_发现_学员_没有_改动_答题纸_的_内容
+# NOTE 展现演示内容给学员
+# NOTE 展示内容_封装在_bash的函数内
+export cs_club_tutorial_learning_show_demo_to_learner="cb55_b50_20_run_me_part_for_ab50_20_run_me.sh"
+
 # echo "l32_36_缺省的_奖牌_路径---> ${cs_club_tutorail_learning_medal_path}"
 
 # ========================================================================================
@@ -201,21 +206,37 @@ l38_grade_simple(){
 }
 
 # =======================================================================
-# NOTE 被下面的f92_grade_by_student_answer_file()函数所调用
-f32_show_demo_to_leaner(){
+# NOTE 这条_基本上_废弃了_被下面的f92_grade_by_student_answer_file()函数所调用
+# NOTE 被下面的pe20_30_judge_by_compare_with_original_md5sum_value()函数所调用
+# f32_show_demo_to_learner(){
+
+#     # NOTE 根据_如下的_开关_决定_是否_演示
+#     if [[ $wmvar_demonstrate_how_to_play == "展示" ]]; then
+
+#         if [[ -d ${vb60_demo} ]]; then
+#             wmlog_echo "展示demo演示"
+
+#             if [[ -f ${vb60_demo}/${vc20_40_simple_name_of_the_file} ]]; then
+#                 # echo "展示_demo演示_的脚本"
+#                 bash ${vb60_demo}/${vc20_40_simple_name_of_the_file}
+#             else
+#                 wmlog_echo "没有找到_展示_demo演示_的脚本"
+#             fi
+#         fi
+#     fi
+
+#     return 0
+# }
+
+f32_show_demo_to_learner(){
+
+    local show_demo_to_learner_function=$1
 
     # NOTE 根据_如下的_开关_决定_是否_演示
     if [[ $wmvar_demonstrate_how_to_play == "展示" ]]; then
-
-        if [[ -d ${vb60_demo} ]]; then
-            wmlog_echo "展示demo演示"
-
-            if [[ -f ${vb60_demo}/${vc20_40_simple_name_of_the_file} ]]; then
-                # echo "展示_demo演示_的脚本"
-                bash ${vb60_demo}/${vc20_40_simple_name_of_the_file}
-            else
-                wmlog_echo "没有找到_展示_demo演示_的脚本"
-            fi
+        # NOTE 如果演示文件存在
+        if [[ -f ${cs_club_tutorial_learning_show_demo_to_learner} ]]; then
+            source ${cs_club_tutorial_learning_show_demo_to_learner} ${show_demo_to_learner_function}
         fi
     fi
 
@@ -411,6 +432,7 @@ f42_show_medal_to_leaner(){
 # NOTE 该文件_可能_被学员_修改过
 # NOTE 该文件_也可能_没有被学员修改过
 # NOTE 需要不同的评分_方法_需要返回不同的信息
+# REVIEW 本函数_暂时_不被调用_在main()函数中_屏蔽了
 f92_grade_by_student_answer_file(){
 
     if [[ -f $current_need_to_grade_file_path ]]; then
@@ -422,7 +444,7 @@ f92_grade_by_student_answer_file(){
             if [[ ${v22_10_md5sum_of_origin_tutorial_file} == ${v22_20_md5sum_of_student_file} ]]; then
                 echo "学员_同学_你并没有_修改_该答题文件啊! 我们是通过md5sum判断的"
 
-                f32_show_demo_to_leaner
+                f32_show_demo_to_learner
 
             else
                 echo "学员_同学_对于_答题文件_进行了修改_可以去进行评分"
@@ -450,12 +472,14 @@ pe20_30_judge_by_compare_with_original_md5sum_value(){
 
     export v22_10_md5sum_of_origin_tutorial_file=$2
 
+    local v22_23_show_demo_to_learner_function=$3
+
     export v22_20_md5sum_of_student_file=$(md5sum ${v22_06_current_student_anwser_file} | awk '{print $1}')
 
     if [[ ${v22_10_md5sum_of_origin_tutorial_file} == ${v22_20_md5sum_of_student_file} ]]; then
         echo "学员_同学_你并没有_修改_该答题文件啊! 我们是通过md5sum判断的"
 
-        f32_show_demo_to_leaner
+        f32_show_demo_to_learner ${v22_23_show_demo_to_learner_function}
 
     else
         # echo "学员_同学_对于_答题文件_进行了修改_可以去进行评分"
@@ -496,9 +520,23 @@ pf24_20_grade_by_student_answer_file_after_embedding_b60_demo_into_b40_code(){
         # NOTE 取出_类似_如下的内容_ls____run_me.sh
         local short_file_name_with_suffix=$(basename ${current_need_to_grade_file_path})
 
+        # NOTE 获得如下的_内容_"ls.sh"
         local short_file_name_temp=$(echo ${short_file_name_with_suffix} | awk -F"____run_me" '{print $1$2}')
 
         local short_file_name=$short_file_name_temp
+
+        # NOTE 获得如下的内容_"ls"
+        local name_only_without_suffix=$(basename "$short_file_name" .sh)
+
+        # c014_ls_展示目录中文件及其属性信息
+        # NOTE 获得如下的内容_c014的部分
+        local get_prefix_of_directory=$(echo ${directory_name} | awk -F"_${name_only_without_suffix}_" '{print $1}' )
+
+        # NOTE 需要拼出如下的内容_当做函数名称 c014_ls_run_me()
+        # NOTE 位于 .tutorial/cs36_learning_grade/cb55_b50_20_run_me_part_for_ab50_20_run_me.sh 脚本内
+        # NOTE 其中有一个特殊的apt-get 这个名称需要替换为apt_get
+        # FIXME
+        local show_demo_to_learner_function_name_of_cb55=$(echo "${get_prefix_of_directory}_${name_only_without_suffix}_run_me" | sed 's/-/_/g' )
 
         echo 3030_${short_file_name}
 
@@ -530,7 +568,7 @@ pf24_20_grade_by_student_answer_file_after_embedding_b60_demo_into_b40_code(){
                 # /workspace/mlabspace/c06_d27_e22_36_linux/21_wmsrc/.tutorial/126_z22_c06_c33_0030_tutorial/b40_code/c058_rmdir_删除空目录文件/rmdir.sh
                 current_student_file_need_to_be_grade=${directory_path}/${short_file_name}
 
-                pe20_30_judge_by_compare_with_original_md5sum_value ${current_student_file_need_to_be_grade} ${the_file_original_md5sum}
+                pe20_30_judge_by_compare_with_original_md5sum_value ${current_student_file_need_to_be_grade} ${the_file_original_md5sum} ${show_demo_to_learner_function_name_of_cb55}
 
             else
                 echo "pf24_20_3030_判断依据出现问题_无法判断_学员_是否修改过_该文件"
