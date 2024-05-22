@@ -707,7 +707,24 @@ f96_3060_check_environment_and_run_main(){
 # NOTE main()是f94_2828_30_main()的便捷名称
 main(){
 
-	f94_2828_30_main
+	if [[ -f $(which cloudstudio) ]]; then
+		# 已经位于cloudstudio.net的工作空间以内了
+		if [[ $(whoami) == "root" ]]; then
+			echo "$(whoami)"
+			if [[ -d /workspace ]]; then
+				# 这里可以执行本脚本
+				echo "可以执行后继的操作"
+
+				# 这里是main函数
+				f94_2828_30_main
+
+			fi
+		else
+			echo "不知道是_啥环境_不能运行本脚本"
+			# 不符合运行条件_退出本脚本的运行
+			exit 0
+		fi
+	fi
 
 	return 0
 }
