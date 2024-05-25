@@ -48,7 +48,10 @@ f16_cs_vs_settings_user_update(){
 	"update.mode": "none",
 	"update.showReleaseNotes": false,
 	"code-runner.runInTerminal": true,
-	"window.menuBarVisibility": "visible"
+  "codingcopilot.enableAutoCompletions": true,
+	"window.menuBarVisibility": "visible",
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.tabs.enabled": false
 }
 EOF
 	) > ${CS_VSCODE_SETTINGS_USER}
