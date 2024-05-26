@@ -98,13 +98,24 @@ f23_install_some_software(){
 		DEBIAN_FRONTEND=noninteractive apt install -y \
 			iputils-ping \
 			make \
-			lsof net-tools \
+			lsof \
+      net-tools \
 			psmisc \
 			file \
 			rsync \
 			curl \
 			direnv \
-			sqlite3 libsqlite3-dev
+			sqlite3 \
+      libsqlite3-dev \
+      bats \
+      jq \
+      gron \
+      pdfgrep \
+      ripgrep \
+      httpie \
+      duff \
+      mlocate
+
 	fi
 
 	return 0
