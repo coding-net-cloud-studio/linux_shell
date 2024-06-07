@@ -18,7 +18,7 @@ void printdir(char *dir, int depth)
   if ((dp = opendir(dir)) == NULL)
   {
     // 如果无法打开目录,输出错误信息并返回
-    fprintf(stderr, "cannot open directory: %s", dir);
+    fprintf(stderr, "cannot open directory: %s\n", dir);
     return;
   }
 
@@ -41,7 +41,7 @@ void printdir(char *dir, int depth)
         continue;
 
       // 打印目录名,并递归调用 printdir
-      printf("%*s%s/", depth, "", entry->d_name);
+      printf("%*s%s/\n", depth, "", entry->d_name);
       printdir(entry->d_name, depth + 4);
     }
     else
@@ -71,13 +71,13 @@ int main(int argc, char *argv[])
     topdir = argv[1];
 
   // 打印正在扫描的目录
-  printf("正在扫描目录 %s", topdir);
+  printf("正在扫描目录 %s\n", topdir);
 
   // 调用printdir函数递归地打印目录结构
   printdir(topdir, 0);
 
   // 打印扫描完成信息
-  printf("扫描完成.");
+  printf("扫描完成.\n");
 
   // 退出程序
   exit(0);

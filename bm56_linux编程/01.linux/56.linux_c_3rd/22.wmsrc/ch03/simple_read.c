@@ -19,14 +19,14 @@ int main()
   if (nread == -1)
   {
     // 如果发生错误,向标准错误输出(文件描述符为2)写入错误信息
-    write(2, "A read error has occurred", 26);
+    write(2, "A read error has occurred\n", 26);
   }
 
   // 将读取到的数据写入标准输出(文件描述符为1),检查是否全部写入
   if ((write(1, buffer, nread)) != nread)
   {
     // 如果写入不完整,向标准错误输出写入错误信息
-    write(2, "A write error has occurred", 27);
+    write(2, "A write error has occurred\n", 27);
   }
 
   // 程序正常退出
