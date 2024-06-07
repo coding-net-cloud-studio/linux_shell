@@ -2,49 +2,73 @@
     which prints out the current directory.
     It will recurse for subdirectories, using the depth parameter is used for indentation.  */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <dirent.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <stdlib.h>
+// 引入必要的头文件
+#include <unistd.h>   // 用于系统调用
+#include <stdio.h>    // 标准输入输出
+#include <dirent.h>   // 目录操作
+#include <string.h>   // 字符串处理
+#include <sys/stat.h> // 文件状态信息
+#include <stdlib.h>   // 通用工具函数
 
+// 打印目录结构的函数
 void printdir(char *dir, int depth)
 {
-    DIR *dp;
-    struct dirent *entry;
-    struct stat statbuf;
+  // 打开目录
+  DIR *dp = opendir(dir);
+  if (dp == NULL)
+  {
+    // 如果无法打开目录,输出错误信息并返回
+    fprintf(stderr, "无法打开目录: %s", dir);
+    return;
+  }
+  // 切换到目录
+  chdir(dir);
 
-    if((dp = opendir(dir)) == NULL) {
-        fprintf(stderr,"cannot open directory: %s\n", dir);
-        return;
+  // 读取目录条目
+  struct dirent *entry;
+  while ((entry = readdir(dp)) != NULL)
+  {
+    // 获取文件状态
+    struct stat statbuf;
+    lstat(entry->d_name, &statbuf);
+
+    // 如果是目录,但忽略 . 和 ..
+    if (S_ISDIR(statbuf.st_mode))
+    {
+      if (strcmp(".", entry->d_name) == 0 || strcmp("..", entry->d_name) == 0)
+      {
+        continue;
+      }
+      // 打印目录名,并在下一行递归调用 printdir
+      printf("%*s%s/", depth, "", entry->d_name);
+      printdir(entry->d_name, depth + 4);
     }
-    chdir(dir);
-    while((entry = readdir(dp)) != NULL) {
-        lstat(entry->d_name,&statbuf);
-        if(S_ISDIR(statbuf.st_mode)) {
-            /* Found a directory, but ignore . and .. */
-            if(strcmp(".",entry->d_name) == 0 || 
-                strcmp("..",entry->d_name) == 0)
-                continue;
-            printf("%*s%s/\n",depth,"",entry->d_name);
-            /* Recurse at a new indent level */
-            printdir(entry->d_name,depth+4);
-        }
-        else printf("%*s%s\n",depth,"",entry->d_name);
+    else
+    {
+      // 打印文件名
+      printf("%*s%s", depth, "", entry->d_name);
     }
-    chdir("..");
-    closedir(dp);
+  }
+  // 回到上一级目录
+  chdir("..");
+  // 关闭目录
+  closedir(dp);
 }
 
 /*  Now we move onto the main function.  */
 
+// 打印/home目录下的内容
 int main()
 {
-    printf("Directory scan of /home:\n");
-    printdir("/home",0);
-    printf("done.\n");
+  // 输出目录扫描提示信息
+  printf("正在扫描 /home目录:");
 
-    exit(0);
+  // 调用printdir函数,传入/home目录和初始深度为0
+  printdir("/home", 0);
+
+  // 输出扫描完成信息
+  printf("扫描完成.");
+
+  // 程序正常退出
+  exit(0);
 }
-
