@@ -5,6 +5,9 @@
 #include <term.h>
 #include <curses.h>
 
+
+#include <termcap.h>
+
 static FILE *output_stream = (FILE *)0;
 
 char *menu[] = {
@@ -75,7 +78,7 @@ int getchoice(char *greet, char *choices[], FILE *in, FILE *out)
     tputs(tparm(cursor, screenrow, screencol), 1, char_to_terminal);
     fprintf(out, "Choice: %s", greet);
     screenrow += 2;
-    option = choices;        
+    option = choices;
     while(*option) {
         tputs(tparm(cursor, screenrow, screencol), 1, char_to_terminal);
         fprintf(out,"%s", *option);
