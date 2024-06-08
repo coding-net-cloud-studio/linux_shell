@@ -11,7 +11,7 @@ CC = gcc
 CFLAGS = -Wall -I./include
 
 # 子目录列表
-SUBDIRS = ch03 ch04 ch05 ch06 ch07 ch08 ch09 ch10 ch11 ch12 ch13 ch14 ch15
+SUBDIRS = ch03 ch04 ch05 ch06 ch07 ch08 ch09 ch10 ch11 ch12 ch13 ch14 ch15 ch06/app ch07/app ch08/app ch13/app ch14/app
 
 # 默认目标
 all: $(SUBDIRS)
