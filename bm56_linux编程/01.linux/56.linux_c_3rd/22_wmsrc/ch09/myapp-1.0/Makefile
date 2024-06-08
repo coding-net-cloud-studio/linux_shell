@@ -29,7 +29,7 @@ main.o: main.c a.h
 3.o: 3.c b.h c.h
 
 clean:
-	-rm -f main.o 2.o 3.o $(MYLIB) *~
+	-rm -f myapp main.o 2.o 3.o $(MYLIB) *~
 
 install: myapp myapp.1
 	@if [ -d $(INSTDIR) ]; \
