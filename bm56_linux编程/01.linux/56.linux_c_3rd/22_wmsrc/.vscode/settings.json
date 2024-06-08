@@ -246,5 +246,8 @@
         // "workbench.action.reloadWindow"
       ]
     }
+  },
+  "files.associations": {
+    "mysql.h": "c"
   }
 }
