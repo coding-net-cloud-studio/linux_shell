@@ -1,6 +1,8 @@
 # Makefile for Beginning Linux Programming 3rd Edition
 # Chapter 10
 
+# sudo apt-get install electric-fence
+
 DEBUG=debug1 debug2 debug3 debug4
 CINFO=cinfo assert
 MEMORY=efence checker
