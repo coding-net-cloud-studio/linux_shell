@@ -8,10 +8,10 @@ CFLAGS= -pedantic -Wall
 
 
 DBM_INC_PATH=/usr/include/gdbm
-DBM_LIB_FILE=-lgdbm
+# DBM_LIB_FILE=-lgdbm
 # On some distributions you may need to change the above line to include
 # the compatibility library, as shown below.
-# DBM_LIB_FILE=-lgdbm_compat -lgdbm
+DBM_LIB_FILE=-lgdbm_compat -lgdbm
 
 
 
