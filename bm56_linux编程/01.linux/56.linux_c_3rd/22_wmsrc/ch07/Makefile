@@ -10,7 +10,7 @@ LIBS=-lgdbm
 # On some systems, you may have to change the line above to include the
 # compatability library, as shown below. Note that the compatability library
 # may have to come first.
-# LIBS=-lgdbm_compat -lgdbm
+LIBS=-lgdbm_compat -lgdbm
 
 # You make also need to edit the files dbm1.c and dbm2.c to change the
 # include of  <ndbm.h> to be <gdbm-ndbm.h>

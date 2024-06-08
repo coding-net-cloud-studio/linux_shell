@@ -2,10 +2,10 @@ all:	application
 
 
 INCLUDE=/usr/include/gdbm
-LIBS=-lgdbm
+# LIBS=-lgdbm
 # On some distributoions you may need to change the above line to include
 # the compatability library, as shown below.
-# LIBS=-lgdbm_compat -lgdbm
+LIBS=-lgdbm_compat -lgdbm
 
 CFLAGS=
 
