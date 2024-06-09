@@ -2,6 +2,7 @@
 import os
 from flask import Flask
 from flask import render_template
+
 app = Flask(__name__)
 
 # 参考内容
@@ -13,9 +14,9 @@ app = Flask(__name__)
 # 定义系统路径的变量
 BASE_DIR = os.path.dirname(__file__)
 # 定义静态文件的路径
-static_dir = os.path.join(BASE_DIR, 'templates')
+static_dir = os.path.join(BASE_DIR, "templates")
 # 定义模板文件的路径
-templates_dir = os.path.join(BASE_DIR, 'templates')
+templates_dir = os.path.join(BASE_DIR, "templates")
 
 
 def return_img_stream(img_local_path):
@@ -26,22 +27,24 @@ def return_img_stream(img_local_path):
     :return: 图片流
     """
     import base64
-    img_stream = ''
-    with open(img_local_path, 'rb') as img_f:
+
+    img_stream = ""
+    with open(img_local_path, "rb") as img_f:
         img_stream = img_f.read()
         img_stream = base64.b64encode(img_stream).decode()
     return img_stream
 
-@app.route('/')
-@app.route('/<name>')
+
+@app.route("/")
+@app.route("/<name>")
 def hello(name=None):
     print("====放置静态图片的目录如下=========================")
     print(static_dir)
     print("====放置静态图片的目录如上=========================")
-    img_path = static_dir + '/' + '22_liao_go_web_qq.png'
+    img_path = static_dir + "/" + "22_liao_go_web_qq.png"
     img_stream = return_img_stream(img_path)
-    return render_template('index.html', name=name,img_stream=img_stream)
+    return render_template("index.html", name=name, img_stream=img_stream)
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
