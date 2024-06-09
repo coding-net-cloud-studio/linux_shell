@@ -26,6 +26,8 @@ export v56_b20_article_markdown_md5sum_file="dc56_b70_catalog_b20_article_file_m
 
 export d36_grade_directory=../cs36_learning_grade
 
+export c68_d32_club_file_merge="td68_d32_club_合并内容"
+
 
 
 l30_change_catalog_directory_name(){
@@ -142,6 +144,16 @@ l60_20_copy_c55_b50_run_me_demo_file_to_grade_directory(){
     return 0
 }
 
+# NOTE 从club其他的教程合并了一些内容_把这些合并的内容_拷贝到_tutorial的根目录下去
+l68_32_copy_td68_d32_club_file_merge_under_root_of_tutorial_directory(){
+
+  if [[ -d ${c68_d32_club_file_merge} ]]; then
+    cp -r -f ${c68_d32_club_file_merge}/* ../
+  fi
+
+  return 0
+}
+
 l78_copy_other_files_to_tutorial_directory(){
 
     export v12_tutorail_data_d22=d22_给d18增加前缀.txt
@@ -180,6 +192,9 @@ main(){
     l60_10_copy_c55_b50_run_me_demo_file_to_tutorial_directory
 
     l60_20_copy_c55_b50_run_me_demo_file_to_grade_directory
+
+    # NOTE 从club其他的教程合并了一些内容_把这些合并的内容_拷贝到_tutorial的根目录下去
+    l68_32_copy_td68_d32_club_file_merge_under_root_of_tutorial_directory
 
     l78_copy_other_files_to_tutorial_directory
 
