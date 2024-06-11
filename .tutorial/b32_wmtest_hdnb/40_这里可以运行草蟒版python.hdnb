@@ -1,0 +1,119 @@
+```py3
+#!/usr/bin/env python
+
+# NOTE 10_测试_草蟒版本的python的片段
+
+# grasspy.cn
+# 草蟒极速 QQ 交流群:760167264 风里雨里我们在这个QQ群里等你 快来吧,大家一起快乐的聊天吧!
+# 来聊聊,中西如何互为借鉴,砥砺前行,中西合璧,走进新时代,实践全球化的命运共同体
+
+# NOTE :点击本单元格左上角的"白色三角形"可以运行本单元格中的草蟒版的python代码
+
+文本文件 = 打开("f.txt", "rt")
+打印(文本文件.读一行())
+文本文件.关闭()
+# 文本文件.写入行()
+print("混合双打")
+```
+
+![将进酒](./wmimages/b70_qiang_jin_jiu.png)
+
+```py3
+# NOTE 30_中文版本
+def 读古诗_赠汪伦():         # 没有参数的函数
+    打印("30_桃花潭水深千尺⑷,不及汪伦送我情,中文版本")
+
+读古诗_赠汪伦()
+```
+
+```py3
+# NOTE 32_经典的cpython的英文关键字版本
+def 读古诗_赠汪伦():         # 没有参数的函数
+    print("32_桃花潭水深千尺⑷,不及汪伦送我情,经典的cpython的英文关键字版本")
+
+读古诗_赠汪伦()
+```
+
+```bash
+cloudstudio d33_邱小姐在梳妆台梳辫子_熔盐热能电厂.hdnb
+```
+
+<!-- NOTE 40_百年未有之大变局,时机已到,2024年06月你该来北京"亮剑"了 -->
+
+<iframe 
+    src="//player.bilibili.com/player.html?aid=217752998&bvid=BV1ka41137Pk&cid=827425283&page=1" 
+    scrolling="no" 
+    border="0" 
+    frameborder="no" 
+    framespacing="0" 
+    allowfullscreen="true"  
+    width="600px" 
+    height="500px" > 
+</iframe>
+
+```bash
+# 50_测试直接执行bash的script
+cat /etc/passwd
+```
+
+```bash
+# 60_测试一个简单的bash script的函数
+# 运用bash魔法执行git clone 一个仓库
+# jupyter常用的魔法命令合集
+# http://lihuaxi.xjx100.cn/news/1366949.html
+f22_git_clone_w06_from_gitcode_com(){
+    ls -lah /bin/bash
+    mkdir -p /workspace/w06/
+    git clone https://gitcode.com/weixin_44128887/w06_wmtest_cloudstudio_club.git /workspace/w06/
+    [[ -d /workspace/w06/ ]] && ls -alh /workspace/w06/
+
+    # NOTE 把/workspace/w06/增加到cloudstudio的webide界面中
+    # [[ -f $(which cloudstudio) ]] && [[ -d /workspace/w06/ ]] && cloudstudio -a /workspace/w06/
+    [[ -f $(which cloudstudio) ]] && [[ -d /workspace/w06/ ]] && cloudstudio /workspace/w06/p38.ex34_访问列表的元素.mp4
+    return 0
+}
+
+f22_git_clone_w06_from_gitcode_com
+# 这个可以运行成功
+```
+
+```py3
+#!/usr/bin/env python
+
+# NOTE 70_另外一个测试草蟒版本的python
+
+# grasspy.cn
+# 草蟒极速 QQ 交流群:760167264 风里雨里我们在这个QQ群里等你 快来吧,大家一起快乐的聊天吧!
+# 来聊聊,中西如何互为借鉴,砥砺前行,中西合璧,走进新时代,实践全球化的命运共同体
+
+# NOTE :点击本单元格左上角的"白色三角形"可以运行本单元格中的草蟒版的python代码
+
+文本文件 = 打开("f.txt", "rt")
+打印(文本文件.读一行())
+文本文件.关闭()
+# 文本文件.写入行()
+
+# 文本文件.可读()
+
+# 对不同分数分级
+分数 = 92
+
+如果 分数 >= 90:
+	等级 = "A_成绩优异"
+或如 分数 >= 80:
+	等级 = "B_成绩不错"
+或如 分数 >= 70:
+	等级= "C_继续努力"
+或如 分数 >= 60:
+	等级 = "D_刚刚及格"
+否则:
+	等级 = "F_准备补考吧"
+
+打印("你输入的成绩属于等级 {}".格式化(等级))
+
+# 下面是一个函数
+套路 我是函数():
+	打印("在函数中输出的信息")
+
+我是函数()
+```
