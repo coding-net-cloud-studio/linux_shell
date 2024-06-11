@@ -14,6 +14,18 @@ chapters:  #  需要为每个章节指定章节名,章节内容( markdown 文件
     code:    "178_z22_c06_c33_0030_tutorial/b40_code/c014_ls_展示目录中文件及其属性信息/ls.sh"
     run:     "[[ -d .tutorial ]] && cd .tutorial && echo catalog_yml_run_条目_414_行_执行到这里 && 178_z22_c06_c33_0030_tutorial/b40_code/c014_ls_展示目录中文件及其属性信息/ls____run_me.sh"
   #=========================================================================
+  - title:   "c014_ls_展示目录中文件及其属性信息_示例讲解"
+    article: "178_z22_c06_c33_0030_tutorial/b20_article/c014_ls_展示目录中文件及其属性信息/ls-wmtag_memo_tutor_and_video.md"
+    video:   "//player.bilibili.com/player.html?aid=443257988&bvid=BV12L411a7Ne&cid=1275963020&p=26"
+    #code:    "178_z22_c06_c33_0030_tutorial/b40_code/c014_ls_展示目录中文件及其属性信息/ls.sh"
+    run:     "[[ -d .tutorial ]] && cd .tutorial && echo catalog_yml_run_条目_403_行_执行到这里 && 178_z22_c06_c33_0030_tutorial/b40_code/c014_ls_展示目录中文件及其属性信息/ls____run_me.sh"
+  #-------------------------------------------------------
+  - title:   "c014_ls_展示目录中文件及其属性信息_动手练习"
+    article: "178_z22_c06_c33_0030_tutorial/b20_article/c014_ls_展示目录中文件及其属性信息/ls.md"
+    #video:   "//player.bilibili.com/player.html?aid=443257988&bvid=BV12L411a7Ne&cid=1275963020&p=26"
+    code:    "178_z22_c06_c33_0030_tutorial/b40_code/c014_ls_展示目录中文件及其属性信息/ls.sh"
+    run:     "[[ -d .tutorial ]] && cd .tutorial && echo catalog_yml_run_条目_414_行_执行到这里 && 178_z22_c06_c33_0030_tutorial/b40_code/c014_ls_展示目录中文件及其属性信息/ls____run_me.sh"
+  #=========================================================================
   - title:   "c018_pwd_显示当前工作目录的路径_示例讲解"
     article: "178_z22_c06_c33_0030_tutorial/b20_article/c018_pwd_显示当前工作目录的路径/pwd-wmtag_memo_tutor_and_video.md"
     video:   "//player.bilibili.com/player.html?aid=443257988&bvid=BV12L411a7Ne&cid=1275962971&p=25"
