@@ -1,3 +1,56 @@
+
+第7章 - 数据管理
+
+要编译,只需输入"make".
+在某些发行版上,您可能需要链接gdbm兼容性routines.Makefile中有一个注释,说明需要更改哪些内容.
+
+memory1.c - 一个简单的内存分配程序,使用malloc函数.
+
+memory2.c - 一个程序,分配16MB的内存.
+
+memory3.c - 一个程序,分配所有机器的内存.
+
+memory4.c - 一个程序,滥用内存导致分段错误.
+
+memory5a.c,memory5b.c - 两个程序,尝试访问空指针导致分段错误.
+
+memory6.c - 一个程序,分配并释放内存使用free函数.
+
+lock1.c - 一个程序,使用函数open创建锁文件.
+
+lock2.c - 一个程序,创建 cooperative lock files.
+
+lock3.c - 一个程序,使用函数fnctl创建不同类型的锁.
+
+lock4.c - 一个程序,测试文件上的锁.
+
+lock5.c - 一个程序,创建竞争锁.
+
+以下程序可能需要使用以下命令之一进行编译,如果默认的Makefile没有成功.
+
+cc -o XXXX XXXX.c -lgdbm
+cc -o XXXX XXXX.c -I/usr/local/include -L/usr/local/lib -ldbm
+cc -o XXXX XXXX.c -I/usr/local/include/gdbm -L/usr/local/lib -lgdbm
+
+dbm1.c - 一个简单的数据库程序.
+
+dbm2.c - 一个改进的数据库程序.
+
+CD应用程序.
+
+app/makefile - 应用程序的makefile. (见第8章.)
+
+app/cd_data.h - 以下文件的头部文件.
+
+app/app_ui.c - 应用程序的用户界面.
+
+app/cd_access.c - dbm方面的应用程序.
+
+要编译应用程序:
+$ make
+
+
+
 Chapter 7  -  Data Management.
 
 To compile, just type 'make'.
@@ -50,6 +103,6 @@ app/app_ui.c    -  The application's user interface.
 app/cd_access.c -  The dbm side of the application.
 
 To compile the application:
-$ make 
+$ make
 
 
