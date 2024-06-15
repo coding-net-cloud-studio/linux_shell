@@ -99,22 +99,22 @@ f23_install_some_software(){
 			iputils-ping \
 			make \
 			lsof \
-      net-tools \
+			net-tools \
 			psmisc \
 			file \
 			rsync \
 			curl \
 			direnv \
 			sqlite3 \
-      libsqlite3-dev \
-      bats \
-      jq \
-      gron \
-      pdfgrep \
-      ripgrep \
-      httpie \
-      duff \
-      mlocate
+			libsqlite3-dev \
+			bats \
+			jq \
+			gron \
+			pdfgrep \
+			ripgrep \
+			httpie \
+			duff \
+			mlocate
 
 	fi
 
@@ -602,6 +602,10 @@ f94_2828_30_main(){
 
 	# 无论何时都先尝试建立这样一个目录
 	# mkdir -p /root/.pyenv
+
+	# REVIEW 以后考虑安装
+	# https://github.com/msoap/shell2http
+	# go install github.com/msoap/shell2http@latest
 
 	f16_cs_vs_settings_user_update
 
