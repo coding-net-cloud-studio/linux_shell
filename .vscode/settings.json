@@ -276,5 +276,29 @@
 
 			]
 		}
-	}
+	},
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "C_Cpp.markdownInComments": "enabled",
+  // "C_Cpp.clang_format_path": "${workspaceFolder}/.vscode/format/clang-format.exe",
+  "C_Cpp.clang_format_style": "file:${workspaceFolder}/.vscode/format/.clang-format",
+  "C_Cpp.formatting": "clangFormat",
+  //   "editor.formatOnSave": true,
+  "formatFiles.excludedFolders": [
+      "node_modules",
+      ".vscode",
+      ".git",
+      "dist",
+      ".chrome",
+      ".wmstudy",
+      ".out",
+      "dist",
+      ".tours",
+      ".tutorial",
+      ".air",
+      ".presentation-buddy"
+  ],
+  "formatFiles.extensionsToInclude": "c, h, ts, js, json",
+  "formatFiles.excludePattern": "md,hdnb"
 }
