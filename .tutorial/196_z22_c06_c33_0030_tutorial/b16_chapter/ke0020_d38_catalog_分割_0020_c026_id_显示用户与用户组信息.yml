@@ -1,0 +1,21 @@
+# YAML 配置文件示例
+# 课程目录配置
+chapters:  #  需要为每个章节指定章节名,章节内容( markdown 文件地址),课程视频地址,以及项目内的练习代码地址;
+    #- lesson:   ##_##_##c026_id_显示用户与用户组信息##_##_##
+  - title:   "c026_id_显示用户与用户组信息_概览"
+    article: "196_z22_c06_c33_0030_tutorial_wmgitignore/b20_article/c026_id_显示用户与用户组信息/id-wmtag_memo_overview.md"
+    #video:   "//player.bilibili.com/player.html?aid=443257988&bvid=BV12L411a7Ne&cid=1262532110&p=107"
+    #code:    "196_z22_c06_c33_0030_tutorial_wmgitignore/b40_code/c026_id_显示用户与用户组信息/id.sh"
+    #run:     "[[ -d .tutorial ]] && cd .tutorial && echo catalog_yml_run_条目_435_行_执行到这里 && 196_z22_c06_c33_0030_tutorial_wmgitignore/b40_code/c026_id_显示用户与用户组信息/id____run_me.sh"
+    #-------------------------------------------------------
+  - title:   "c026_id_显示用户与用户组信息_示例讲解"
+    article: "196_z22_c06_c33_0030_tutorial_wmgitignore/b20_article/c026_id_显示用户与用户组信息/id-wmtag_memo_tutor_and_video.md"
+    video:   "//player.bilibili.com/player.html?aid=443257988&bvid=BV12L411a7Ne&cid=1262532110&p=107"
+    #code:    "196_z22_c06_c33_0030_tutorial_wmgitignore/b40_code/c026_id_显示用户与用户组信息/id.sh"
+    #run:     "[[ -d .tutorial ]] && cd .tutorial && echo catalog_yml_run_条目_448_行_执行到这里 && 196_z22_c06_c33_0030_tutorial_wmgitignore/b40_code/c026_id_显示用户与用户组信息/id____run_me.sh"
+    #-------------------------------------------------------
+  - title:   "c026_id_显示用户与用户组信息_动手练习"
+    article: "196_z22_c06_c33_0030_tutorial_wmgitignore/b20_article/c026_id_显示用户与用户组信息/id.md"
+    #video:   "//player.bilibili.com/player.html?aid=443257988&bvid=BV12L411a7Ne&cid=1262532110&p=107"
+    code:    "196_z22_c06_c33_0030_tutorial_wmgitignore/b40_code/c026_id_显示用户与用户组信息/id.sh"
+    run:     "[[ -d .tutorial ]] && cd .tutorial && echo catalog_yml_run_条目_461_行_执行到这里 && 196_z22_c06_c33_0030_tutorial_wmgitignore/b40_code/c026_id_显示用户与用户组信息/id____run_me.sh"
