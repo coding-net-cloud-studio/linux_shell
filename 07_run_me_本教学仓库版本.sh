@@ -86,9 +86,16 @@ f20_linux_git_setting() {
 
 	git config --global alias.count "rev-list --all --count"
 
+  git config --global alias.st "status -s"
+
+  git config --global alias.sg         "log --graph --abbrev-commit --pretty=oneline"
+
+  git config --global alias.show-graph "log --graph --abbrev-commit --pretty=oneline"
+
 	# REVIEW 这里可能会有问题.立足解决,从本机上用tar.gz传输到cloud studio中直接解开.git用户信息的问题.
 	# 相信,git clone模式,不会需要这个语句.
 	git config --global --add safe.directory $(pwd)
+  git config --global --add safe.directory "/workspace"
 }
 
 # REVIEW 这个函数_是我自己加入的_安装一些函数
@@ -114,7 +121,8 @@ f23_install_some_software(){
 			ripgrep \
 			httpie \
 			duff \
-			mlocate
+			mlocate \
+      pv
 
 	fi
 
