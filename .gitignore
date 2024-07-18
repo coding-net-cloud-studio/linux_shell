@@ -37,6 +37,23 @@
 mm/*
 mm/
 
+# =================这里是合并了pyenv_开始=======================
+
+/shims
+/version
+/versions
+/sources
+/cache
+/libexec/*.dylib
+/src/Makefile
+/src/*.o
+/bats/
+/default-packages
+.idea
+*.un~
+
+# =================这里是合并了pyenv_结束=======================
+
 # # Byte-compiled / optimized / DLL files
 # __pycache__/
 # *.py[cod]
