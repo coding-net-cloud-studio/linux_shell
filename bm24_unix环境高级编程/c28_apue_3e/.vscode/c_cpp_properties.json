@@ -1,0 +1,23 @@
+{
+    "env": {
+        "myDefaultIncludePath": [
+            "${workspaceFolder}/**",
+            "${workspaceFolder}",
+            "${workspaceFolder}/include",
+            "${workspaceFolder}/db",
+            "${workspaceFolder}/ipc1",
+            "${workspaceFolder}/ipc2/open",
+            "${workspaceFolder}/printer",
+        ]
+    },
+
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${myDefaultIncludePath}"
+            ]
+        }
+    ],
+    "version": 4
+}

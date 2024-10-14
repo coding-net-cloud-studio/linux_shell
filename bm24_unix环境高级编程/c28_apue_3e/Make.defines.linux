@@ -1,0 +1,53 @@
+# Make.defines.linux 文件包含了针对不同平台的通用 make 定义.
+# 下面的定义是为了使用 gcc 编译和链接 C 程序而在所有程序目录中必需的.
+
+# C 编译器
+CC=gcc
+
+# 编译 C 程序的命令
+# $(CC) 是编译器
+# $(CFLAGS) 是编译器标志
+# $(CPPFLAGS) 是预处理器标志
+# -c 表示只编译不链接
+COMPILE.c=$(CC) $(CFLAGS) $(CPPFLAGS) -c
+
+# 链接 C 程序的命令
+# $(CC) 是编译器
+# $(CFLAGS) 是编译器标志
+# $(CPPFLAGS) 是预处理器标志
+# $(LDFLAGS) 是链接器标志
+LINK.c=$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
+
+# 链接器标志,默认为空
+LDFLAGS=
+
+# 库目录,指向 $(ROOT)/lib
+LDDIR=-L$(ROOT)/lib
+
+# 链接库,包括 $(LDDIR) 指定的目录下的 libapue.a 和其他额外的库 $(EXTRALIBS)
+LDLIBS=$(LDDIR) -lapue $(EXTRALIBS)
+
+# 编译器标志
+# -g 表示生成调试信息
+# -I$(ROOT)/include 表示包含 $(ROOT)/include 目录下的头文件
+# -Wall 表示开启所有警告
+# -DLINUX 表示定义 LINUX 宏
+# -D_GNU_SOURCE 表示定义 _GNU_SOURCE 宏,启用 GNU 扩展
+# $(EXTRA) 表示其他额外的编译器标志
+CFLAGS= -g -I$(ROOT)/include -Wall -DLINUX -D_GNU_SOURCE $(EXTRA)
+
+# 用于生成静态库的 ranlib 命令,默认为 echo
+RANLIB=echo
+
+# 用于创建和管理静态库的 ar 命令
+AR=ar
+
+# awk 命令,用于文本处理
+AWK=awk
+
+# libapue.a 库文件的路径
+LIBAPUE=$(ROOT)/lib/libapue.a
+
+# 每个目录中需要删除的临时文件
+TEMPFILES=core core.* *.o temp.* *.out
+
