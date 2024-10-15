@@ -12,7 +12,7 @@
     "[go]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
+            "source.organizeImports": "explicit",
         },
         // Optional: Disable snippets, as they conflict with completion ranking.
         "editor.snippetSuggestions": "none",
@@ -20,7 +20,7 @@
     "[go.mod]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
+            "source.organizeImports": "explicit",
         },
     },
     "gopls": {
@@ -249,7 +249,6 @@
         "threads/exitstatus": true,
         "threads/threadid": true,
         "threads/timedlock": true,
-
     },
     "files.associations": {
         "*.in_wmraw_英文版": "c",
@@ -267,46 +266,102 @@
     },
     "Codegeex.RepoIndex": true,
     "commandOnAllFiles.commands": {
-      "cb38_把中文符号修改为英文符号": {
-        "command": "chinese-punctuation-to-english.toEnglish",
-        "includeFileExtensions": [".py",".h",".c",".cpp",".go",".rs",".js",".json",".lua"],
-        "excludeFolders": [
-          "node_modules", "out", ".vscode-test", "media", ".git"
-          ]
-      },
-      "cb40_删除尾部的空格": {
-          "command": "editor.action.trimTrailingWhitespace",
-          "includeFileExtensions": [".py",".h",".c",".cpp",".go",".rs",".js",".json",".lua"],
-          "excludeFolders": [
-            "node_modules", "out", ".vscode-test", "media", ".git"
+        "cb38_把中文符号修改为英文符号": {
+            "command": "chinese-punctuation-to-english.toEnglish",
+            "includeFileExtensions": [
+                ".py",
+                ".h",
+                ".c",
+                ".cpp",
+                ".go",
+                ".rs",
+                ".js",
+                ".json",
+                ".lua"
+            ],
+            "excludeFolders": [
+                "node_modules",
+                "out",
+                ".vscode-test",
+                "media",
+                ".git"
             ]
         },
-      "cb42_shell_把中文符号修改为英文符号": {
-      "command": "chinese-punctuation-to-english.toEnglish",
-      "includeFileExtensions": [".sh","Makefile"],
-      "excludeFolders": [
-          "node_modules", "out", ".vscode-test", "media", ".git"
-          ]
-      },
-      "cb44_shell_删除尾部的空格": {
-          "command": "editor.action.trimTrailingWhitespace",
-          "includeFileExtensions": [".sh","Makefile"],
-          "excludeFolders": [
-            "node_modules", "out", ".vscode-test", "media", ".git"
-            ]
-      },
-      "cb46_text_把中文符号修改为英文符号": {
-        "command": "chinese-punctuation-to-english.toEnglish",
-        "includeFileExtensions": [".txt","md"],
-        "excludeFolders": [
-            "node_modules", "out", ".vscode-test", "media", ".git"
+        "cb40_删除尾部的空格": {
+            "command": "editor.action.trimTrailingWhitespace",
+            "includeFileExtensions": [
+                ".py",
+                ".h",
+                ".c",
+                ".cpp",
+                ".go",
+                ".rs",
+                ".js",
+                ".json",
+                ".lua"
+            ],
+            "excludeFolders": [
+                "node_modules",
+                "out",
+                ".vscode-test",
+                "media",
+                ".git"
             ]
         },
-      "cb48_text_删除尾部的空格": {
-          "command": "editor.action.trimTrailingWhitespace",
-          "includeFileExtensions": [".txt","md"],
-          "excludeFolders": [
-            "node_modules", "out", ".vscode-test", "media", ".git"
+        "cb42_shell_把中文符号修改为英文符号": {
+            "command": "chinese-punctuation-to-english.toEnglish",
+            "includeFileExtensions": [
+                ".sh",
+                "Makefile"
+            ],
+            "excludeFolders": [
+                "node_modules",
+                "out",
+                ".vscode-test",
+                "media",
+                ".git"
+            ]
+        },
+        "cb44_shell_删除尾部的空格": {
+            "command": "editor.action.trimTrailingWhitespace",
+            "includeFileExtensions": [
+                ".sh",
+                "Makefile"
+            ],
+            "excludeFolders": [
+                "node_modules",
+                "out",
+                ".vscode-test",
+                "media",
+                ".git"
+            ]
+        },
+        "cb46_text_把中文符号修改为英文符号": {
+            "command": "chinese-punctuation-to-english.toEnglish",
+            "includeFileExtensions": [
+                ".txt",
+                "md"
+            ],
+            "excludeFolders": [
+                "node_modules",
+                "out",
+                ".vscode-test",
+                "media",
+                ".git"
+            ]
+        },
+        "cb48_text_删除尾部的空格": {
+            "command": "editor.action.trimTrailingWhitespace",
+            "includeFileExtensions": [
+                ".txt",
+                "md"
+            ],
+            "excludeFolders": [
+                "node_modules",
+                "out",
+                ".vscode-test",
+                "media",
+                ".git"
             ]
         }
     }
