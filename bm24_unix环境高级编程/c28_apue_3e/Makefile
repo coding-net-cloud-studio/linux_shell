@@ -102,7 +102,7 @@ help:
 	-@exit 0
 
 # 下面是别名
-club: init
+club: 11_install_lib_for_club
 	-@echo -e "$$(pwd)/Makefile wmtask_[11_install_lib_for_club]_目标_被运行\n"
 	-@exit 0
 
